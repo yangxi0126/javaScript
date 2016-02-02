@@ -1,0 +1,12 @@
+/*=========mF_quwan========*/
+.mF_quwan{ position:relative;}
+.mF_quwan .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_quwan,.mF_quwan .pic{border-bottom:1px solid #E2E2E2;}
+.mF_quwan .pic li{width:100%;height:100%;overflow:hidden;position:absolute;display:none;}
+.mF_quwan .txt li{position:absolute;z-index:2;*bottom:16px!important;height:34px;line-height:34px;display:none;}
+.mF_quwan .txt li a{display:block;position:relative;z-index:1;color:#fff;padding-left:16px;font-size:14px;font-weight:bold;text-decoration:none;}/*标题样式*/
+.mF_quwan .txt li b{display:block;height:100%;width:100%;position:absolute;top:0;left:0;background:#000;filter:alpha(opacity=30);opacity:0.3;}/*标题背景*/
+.mF_quwan .num{position:absolute;z-index:3;bottom:0;*bottom:-1px;right:0;}/*按钮样式*/
+.mF_quwan .num li{float:left;}
+.mF_quwan .num li a{color:#B5AAB0;float:left;width:56px;height:16px;line-height:16px;overflow:hidden;text-align:center;border-left:1px solid #E2E2E2;cursor:pointer;text-decoration:none;}
+.mF_quwan .num li.current a,.mF_quwan .num li.hover a{color:#fff;font-weight:bold;background:#DA0A0A;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;}/*当前/悬停按钮样式*/

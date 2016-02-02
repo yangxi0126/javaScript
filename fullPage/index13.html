@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+<title>fullPage.js演示-响应式_dowebok</title>
+ <link rel="stylesheet" href="css/jquery.fullPage.css">
+ <style>
+.section { text-align: center; font: 30px "Microsoft Yahei"; color: #fff;}
+</style>
+</head>
+
+<body>
+<div id="dowebok">
+    <div class="section">
+        <p>根据可视区域大小启用/关闭全屏滚动效果</p>
+    </div>
+    <div class="section">
+        <p>如果可视区宽度小于1024，则关闭全屏滚动效果，使用自带的滚动条</p>
+    </div>
+    <div class="section">
+        <p>请试着调整浏览器大小并查看滚动条是否出现</p>
+    </div>
+    <div class="section">
+        <p>第四屏</p>
+    </div>
+</div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(function(){
+    $('#dowebok').fullpage({
+        sectionsColor : ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90']
+    });
+
+    $(window).resize(function(){
+        autoScrolling();
+    });
+
+    function autoScrolling(){
+        var $ww = $(window).width();
+        if($ww < 1024){
+            $.fn.fullpage.setAutoScrolling(false);
+        } else {
+            $.fn.fullpage.setAutoScrolling(true);
+        }
+    }
+
+    autoScrolling();
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<a href="http://www.dowebok.com/" style="display: none;">dowebok</a>
+<a href="http://www.dowebok.com/77.html" style="display: none;">jQuery全屏滚动插件fullPage.js</a>
+
+</body>
+</html>

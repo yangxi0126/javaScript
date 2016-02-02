@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #test{
+            width: 150px;
+            height: 25px;
+            border: 1px solid #d1d1d1;
+            overflow: hidden;
+        }
+        #bar{
+            width: 0;
+            background: red;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+    <div id="bar"></div>
+</div>
+<input type="button" value="点击"/>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var dec=function(){
+        var _this=$('#bar');
+        var _len=_this.width();
+        _len-=2;
+        if(_len<0){
+            _len=0;
+        }
+        _this.width(_len);
+    };
+    var barDesc=setInterval(dec,200);
+    $('input').on('click',function(){
+        var _this=$('#bar');
+        var _len=_this.width();
+        if(_len>150){
+            clearInterval(barDesc);
+        }else{
+            _len+=6;
+            _this.width(_len);
+        }
+    });
+</script>
+</html>

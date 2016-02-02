@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>??</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font-family:"????";
+            font-size:13px;
+        }
+        .content_box{
+            width:400px;
+            height:300px;
+            overflow:hidden;
+            position:relative;
+            margin:0 auto;
+        }
+        #picBox{
+            width:2000px;
+        }
+        .pics{
+            width:400px;
+            float:left;
+        }
+        .btn{
+            position:absolute;
+            top:120px;
+            cursor:pointer;
+            display:none;
+        }
+        .btn img{
+            width:40px;
+        }
+    </style>
+</head>
+<body>
+<div class="content_box">
+    <div id="picBox">
+        <img class="pics" src="img/han2.jpg" alt=""/>
+        <img class="pics" src="img/han3.jpg" alt=""/>
+        <img class="pics" src="img/han4.jpg" alt=""/>
+        <img class="pics" src="img/han5.jpg" alt=""/>
+        <img class="pics" src="img/han7.jpg" alt=""/>
+        <div class="btn" style="left:0;">
+            <img src="img/prev.png" alt=""/>
+        </div>
+        <div class="btn" style="right:0;">
+            <img src="img/next.png" alt=""/>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    var timer;//???
+//    ????
+    $('#picBox').hover(function(){
+        clearInterval(timer);
+        $('.btn').stop(false,true).fadeIn(200);
+    },function(){
+        $('.btn').stop(false,true).fadeOut(200);
+        timer=setInterval(function(){
+            $('.pics:first').stop(false,true).animate({marginLeft:'-400px'},500,function(){
+                $('.pics:first').appendTo($('#picBox')).css({marginLeft:'0px'});
+            });
+        },1000);
+    }).trigger('mouseleave');
+//    ????
+    $('.btn').eq(0).on('click',function(){
+        if(!$('.pics:first').is(':animated')){
+            $('.pics:first').stop(false,true).animate({marginLeft:'-400px'},500,function(){
+                $('.pics:first').appendTo($('#picBox')).css({marginLeft:'0px'});//???????????????????
+            });
+        }
+    });
+    $('.btn').eq(1).on('click',function(){
+        if(!$('.pics:first').is(':animated')){
+            $('.pics:last').prependTo($('#picBox')).css({marginLeft:'-400px'});//???????????
+            $('.pics:first').animate({marginLeft:'0px'},500);//?????????,???????
+        }
+    });
+</script>
+</html>

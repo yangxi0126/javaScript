@@ -1,0 +1,22 @@
+/*=========mF_fscreen_tb========*/
+.mF_fscreen_tb_wrap{padding:8px;border:1px solid #999;float:left;background:#fff;}/*背景边框*/
+.mF_fscreen_tb { background:#333; position:relative;}
+.mF_fscreen_tb .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_fscreen_tb .pic { position:absolute; top:0; left:0; }
+.mF_fscreen_tb .pic li { position:absolute; width:100%; height:100%; overflow:hidden; display:none; }
+.mF_fscreen_tb .thumb_bg { position:absolute; border-top:1px solid #fff; bottom:0; left:0; width:100%; background:#000; filter:alpha(opacity=40); opacity:0.4;}
+.mF_fscreen_tb .thumb { position:absolute; bottom:0; width:x; overflow:hidden; }
+.mF_fscreen_tb .thumb ul { position:relative; width:x; top:0; left:0;/*补偿父层的margin*/}
+.mF_fscreen_tb .thumb ul li { float:left; width:x; overflow:hidden; cursor:pointer; }
+.mF_fscreen_tb .thumb ul li a { display:block;border:1px solid #999; margin:8px;}
+.mF_fscreen_tb .thumb ul li a img { position:relative; z-index:1; width:100%; filter:alpha(opacity=80); opacity:0.8; }
+.mF_fscreen_tb .thumb ul li.current a img { filter:alpha(opacity=100); opacity:1; }
+.mF_fscreen_tb .thumb ul li.current a,.mF_fscreen_tb .thumb ul li.hover a { border-color:#fff; }
+
+.mF_fscreen_tb .txt li { position:absolute; z-index:2; top:26px; width:100%; line-height:20px; font-family:'微软雅黑'; }/*标题*/
+.mF_fscreen_tb .txt li a { display:block; color:#fff; padding-left:16px; font-weight:bold; font-size:16px; text-decoration:none; }/*标题样式*/
+.mF_fscreen_tb .txt li p { padding-left:16px; color:#fff; }/*详细描述文字样式*/
+.mF_fscreen_tb .prev, .mF_fscreen_tb .next { font:bold 38px arial; width:28px; height:46px; overflow:hidden; position:absolute; z-index:4; left:0; bottom:0px; cursor:pointer; }/*width=margin+pad=10+18=28;*/
+.mF_fscreen_tb .next { left:auto; right:0; }
+.mF_fscreen_tb .prev a, .mF_fscreen_tb .next a { display:block; color:#f1f1f1; text-align:center; text-decoration:none; }
+.mF_fscreen_tb .prev a:hover, .mF_fscreen_tb .next a:hover { color:#f60; }

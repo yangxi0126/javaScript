@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #fff;
+    font-family: 'Microsoft YaHei','Lantinghei SC';
+}
+#wrap{
+    width: 100%;
+    min-width: 1200px;
+    height: 800px;
+    position: absolute;
+    top: 50%;
+    margin-top: -400px;
+    left: 0;
+    overflow: hidden;
+    background: #333;
+}
+/*控制图片大小*/
+.photo{
+    width: 260px;
+    height: 320px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 1px rgba(0,0,0,.01);
+    transition: all .4s;
+    -webkit-transition: all .6s;
+}
+.photo .side{
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+.image{
+    /*border: 1px solid blue;*/
+    width: 100%;
+    height: 250px;
+    /*line-height: 250px;*/
+    overflow: hidden;
+}
+.photo .side img{
+    width: 100%;
+}
+.photo .side .caption{
+    text-align: center;
+    font-size: 14px;
+    line-height: 50px;
+}
+/*正中图片*/
+.photo_center{
+    /*left: 50%;*/
+    /*top: 50%;*/
+    margin-left: -160px;
+    margin-top: -130px;
+    z-index: 999;
+    /*transform*/
+}
+.btn-box{
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    bottom: 50px;
+    text-align: center;
+}
+.btn-list{
+    list-style: none;
+    margin: 0 auto;
+}
+.btn-list li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #000;
+    display: inline-block;
+    margin-right: 5px;
+}
+.btn-list li:hover{
+    background: #aaa;
+}

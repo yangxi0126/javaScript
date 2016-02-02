@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>放大镜效果</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #myDiv{
+            position:relative;
+            width:200px;
+            height:200px;
+        }
+        #myDiv .smallPic{
+            width:200px;
+            height:200px;
+            position:relative;
+        }
+        #myDiv .float_lay{
+            width:50px;
+            height:50px;
+            border:1px solid #000;
+            position:absolute;
+            opacity:0.3;
+            background:#fff;
+            top:0;
+            left:0;
+            display:none;
+        }
+        #myDiv .bigPic{
+            position:absolute;
+            top:0;
+            left:200px;
+            overflow:hidden;
+            width:250px;
+            height:250px;
+            border:1px solid #000;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv">
+    <div class="smallPic">
+        <span class="float_lay"></span>
+        <img src="small.png" alt=""/>
+    </div>
+    <div class="bigPic">
+        <img src="big.png" alt=""/>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var myDiv=$('#myDiv');
+        $('#myDiv .smallPic').hover(function(){
+            $('#myDiv .float_lay').css({display:'block'});
+            $('#myDiv .bigPic').css({display:'block'});
+        },function(){
+            $('#myDiv .float_lay').css({display:'none'});
+            $('#myDiv .bigPic').css({display:'none'});
+        });
+        $('#myDiv .smallPic').on('mousemove',function(e){//火狐没有event对象，必须传一个event
+            var divPosi=$('#myDiv').offset();//取得图片距离页面的边距
+            var xx=e.clientX;
+            var yy=e.clientY;
+            var picLeft=xx-divPosi.left-25;
+            var picTop=yy-divPosi.top-25;
+            var seePic=$('#myDiv .bigPic').width();
+            var bigPic=$('#myDiv .bigPic img').width();
+            var percentL;
+            var percentT;
+            <!--这样写是最好的，不然会卡顿-->
+            if(picLeft<0){
+                picLeft=0;
+            }else if(picLeft>148){
+                picLeft=148;
+            }
+            if(picTop<0){
+                picTop=0;
+            }else if(picTop>148){
+                picTop=148;
+            }
+            $('#myDiv .float_lay').css({top:picTop+'px',left:picLeft+'px'});
+            percentL=-picLeft/148*(bigPic-seePic);
+            percentT=-picTop/148*(bigPic-seePic);
+            $('#myDiv .bigPic img').css({marginTop:percentT+'px',marginLeft:percentL+'px'});
+        });
+    });
+</script>
+</html>

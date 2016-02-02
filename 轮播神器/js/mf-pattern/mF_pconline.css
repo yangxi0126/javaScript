@@ -1,0 +1,10 @@
+﻿/*=========mF_pconline========*/
+.mF_pconline{ position:relative;}
+.mF_pconline .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_pconline .pic li{width:100%;height:100%;overflow:hidden;position:absolute;display:none;}
+.mF_pconline .txt li{position:absolute;z-index:2;bottom:0;height:28px;line-height:28px;background:#DBDBDB;display:none;}
+.mF_pconline .txt li a{display:block;position:relative;z-index:1;color:#333;padding-left:10px;font-size:12px;font-weight:bold;text-decoration:none;}/*标题样式*/
+.mF_pconline .num{position:absolute;z-index:3;bottom:5px;right:5px;}/*按钮样式*/
+.mF_pconline .num li{float:left;}
+.mF_pconline .num li a{color:#333;float:left;margin-left:3px;width:15px;height:15px;line-height:15px;*line-height:14px;overflow:hidden;border:1px solid #AEC1CC;text-align:center;cursor:pointer;background:#fff;text-decoration:none;}
+.mF_pconline .num li.current a,.mF_pconline .num li.hover a{color:#fff;background:#f60;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;}/*当前/悬停按钮样式*/

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>网页进度条</title>
+    <style type="text/css">
+        #progressBox{
+            width:300px;
+            height:40px;
+            border:1px solid #c8c8c8;
+            position:relative;
+            background:#fff;
+        }
+        #progressBar,#progressText{
+            position:absolute;
+            top:0;
+            left:0;
+            line-height:40px;
+            width:100%;
+            text-align:center;
+            font-size:18px;
+        }
+        /*clip属性适用于绝对定位*/
+        #progressBar{
+            z-index:2;
+            background:#00A1F5;
+            /*第二个参数表示所切宽度*/
+            clip:rect(0px,0px,140px,0px);
+            color:white;
+        }
+        #progressText{
+            z-index:1;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+<div id="progressBox">
+    <div id="progressBar">0%</div>
+    <div id="progressText">0%</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var iNow=0;//写死数据，实际情况应该取得后台返回的ajax数据
+        var timer=setInterval(function(){
+            iNow+=2;
+            if(iNow>100){
+                clearInterval(timer);
+            }else{
+                progressFn(iNow);
+            }
+        },30);
+    });
+    function progressFn(cent){
+        var progressBox=$('#progressBox');
+        var progressBar=$('#progressBar');
+        var progressText=$('#progressText');
+        var totalWidth=progressBox.width();
+        progressBar.text(cent+'%');
+        progressText.text(cent+'%');
+        progressBar.css({clip:'rect(0px,'+cent/100*totalWidth+'px,140px,0px)'});
+    }
+</script>
+</html>

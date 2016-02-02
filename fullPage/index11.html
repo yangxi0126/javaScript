@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <title>fullPage.js演示-自动滚动_dowebok</title>
+ <link rel="stylesheet" href="css/jquery.fullPage.css">
+ <style>
+.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+</style>
+</head>
+
+<body>
+<div id="dowebok">
+    <div class="section">
+        <h3>第一屏</h3>
+    </div>
+    <div class="section">
+        <h3>第二屏</h3>
+    </div>
+    <div class="section">
+        <h3>第三屏</h3>
+    </div>
+    <div class="section">
+        <h3>第四屏</h3>
+    </div>
+</div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(function(){
+    $('#dowebok').fullpage({
+        sectionsColor : ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+        continuousVertical: true
+    });
+
+    setInterval(function(){
+        $.fn.fullpage.moveSectionDown();
+    }, 3000);
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<a href="http://www.dowebok.com/" style="display: none;">dowebok</a>
+<a href="http://www.dowebok.com/77.html" style="display: none;">jQuery全屏滚动插件fullPage.js</a>
+
+</body>
+</html>

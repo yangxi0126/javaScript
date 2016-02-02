@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>apple 最新产品展示效果</title>
+<style type="text/css">
+*{margin:0;padding:0;}
+body{background:#EBEBED;_position:relative;_height:100%;}
+img{border:none;display:block;}
+li{list-style:none;}
+.page{
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	box-shadow: rgba(0,0,0,0.3) 0 1px 3px; 
+	background:#FFFFFF;
+	border-color: #E5E5E5 #DBDBDB #D2D2D2;
+	border-style: solid;
+	border-width: 1px;
+	margin:5px auto 0;
+	width:980px;
+}
+.miaov_box{
+	overflow: hidden;
+	position: relative;
+	width: 820px;
+	z-index: 0;
+	height:158px;
+	margin: 0 70px;
+}
+.miaov_box_head{
+	width: 1680px;	
+}
+.miaov_box_head li{
+	width:140px; 
+	float:left;
+	text-align: center;
+}
+a{
+	text-decoration:none;
+	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+	color:#7F7F7F;
+}
+.miaov_box_head li a:hover{color:#333;}
+.miaov_box_foot{
+	height:30px; 
+	text-align:center; 
+	background:#fff; 
+	overflow:hidden;
+	background:url(img/nav_bg.png) no-repeat 0 0;
+	background:-moz-linear-gradient(center bottom, rgba(223,223,223,1) 0%, rgba(242,242,242,1) 66%, rgba(242,242,242,1) 90%, rgba(230,230,230,1) 93%, rgba(190,190,190,1) 96%, rgba(150,150,150,1) 100%);
+	background:-webkit-gradient(linear, left bottom, left top, from(rgba(223,223,223,1)), color-stop(66%, rgba(242,242,242,1)), color-stop(90%, rgba(242,242,242,1)), color-stop(93%, rgba(230,230,230,1)), color-stop(96%, rgba(210,210,210,1)), to(rgba(140,140,140,1)));
+	border-bottom:1px solid #ebebeb;
+	position:relative;
+}
+.caret{
+	background: url(img/caret_active.gif) no-repeat scroll 0 0;
+    display: block;
+    height: 8px;
+    margin: 0 0 -8px -7px;
+    position: absolute;
+    width: 15px;
+}
+.miaov_box_foot a{
+ 	display: inline-block;
+    margin: 0 15px;
+    padding: 8px 0 6px;
+	cursor:pointer;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.miaov_box_foot .show{
+    cursor: default;
+    color:#2B2B2B;	
+}
+.miaov_box_foot a:hover{color:#000;}
+.miaov{height:36px;line-height:26px;text-align:center;position:fixed;_position:absolute;bottom:0;width:100%;}
+.miaov a{color:#777;font-size:16px;}
+.miaov a:hover{color:#555;}
+.miaov_head{height:36px;width:980px;overflow:hidden;margin:0 auto;}
+.miaov_head .left{float:left;}
+.miaov_head .right{float:right;}
+.miaov_head a{line-height:36px;color:#777;}
+.miaov_head a:hover{color:#555;}
+</style>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+function getByClass(oParent, sClass)
+{
+	var aEle=oParent.getElementsByTagName('*');
+	var aResult=[];
+	var i=0;
+	
+	for(i=0;i<aEle.length;i++)
+	{
+		if(aEle[i].className==sClass)
+		{
+			aResult.push(aEle[i]);
+		}
+	}
+	
+	return aResult;
+}
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var aLi=getByClass(oDiv, 'miaov_box_head')[0].getElementsByTagName('li');
+	var aBtn=getByClass(oDiv, 'miaov_box_foot')[0].getElementsByTagName('a');
+	var oCaret=getByClass(oDiv, 'caret')[0];
+	var aPos=[];
+	var timer=null;
+	var i=0;
+	
+	for(i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aPos[i]=aLi[i].offsetLeft;
+	}
+	
+	for(i=0;i<aLi.length;i++)
+	{
+		aLi[i].style.position='absolute';
+		aLi[i].style.left=aPos[i]+'px';
+	}
+	
+	aBtn[0].onclick=function ()
+	{
+		var i=aLi.length-1;
+		
+		clearTimeout(timer);
+		
+		function next()
+		{
+			var obj=aLi[i];
+			if(i>=aLi.length/2)
+			{
+				miaovStartMove(aLi[i], {left: 900}, MIAOV_MOVE_TYPE.FLEX);
+				timer=setTimeout(next, 100);
+				i--;
+			}
+			else
+			{
+				timer=setTimeout(next2, 150);
+			}
+		}
+		
+		function next2()
+		{
+			if(i>=0)
+			{
+				miaovStartMove(aLi[i], {left: aPos[i]}, MIAOV_MOVE_TYPE.FLEX);
+				timer=setTimeout(next2, 100);
+			}
+			i--;
+		}
+		
+		next();
+		
+		aBtn[1].className='';
+		this.className='show';
+		miaovStartMove(oCaret, {left: this.offsetLeft+this.offsetWidth/2}, MIAOV_MOVE_TYPE.BUFFER);
+	};
+	
+	aBtn[1].onclick=function ()
+	{
+		var i=0;
+		
+		clearTimeout(timer);
+		
+		function next()
+		{
+			var obj=aLi[i];
+			if(i<aLi.length/2)
+			{
+				miaovStartMove(aLi[i], {left: -200}, MIAOV_MOVE_TYPE.FLEX);
+				timer=setTimeout(next, 100);
+				i++;
+			}
+			else if(i==aLi.length/2)
+			{
+				timer=setTimeout(next2, 150);
+			}
+		}
+		
+		function next2()
+		{
+			if(i<aLi.length)
+			{
+				miaovStartMove(aLi[i], {left: aPos[i-aLi.length/2]}, MIAOV_MOVE_TYPE.FLEX);
+				timer=setTimeout(next2, 100);
+			}
+			i++;
+		}
+		
+		next();
+		
+		aBtn[0].className='';
+		this.className='show';
+		miaovStartMove(oCaret, {left: this.offsetLeft+this.offsetWidth/2}, MIAOV_MOVE_TYPE.BUFFER);
+	};
+};
+</script>
+</head>
+
+<body>
+<div class='miaov_head'>
+	<a href="http://www.sitejs.com" target="_blank" class='left'>网页特效　http://www.sitejs.com</a>
+	<a href="http://www.sitejs.com" target="_blank" class='right'>网页素材</a>
+</div>
+<div id="div1" class="page">
+	<div class="miaov_box">
+			<ul class="miaov_box_head">
+				<li><a href="http://www.sitejs.com"><img src="img/1.jpg" alt=""/>iPod shuffle</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/2.jpg" alt=""/>iPod nano</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/3.jpg" alt=""/>iPod classic</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/4.jpg" alt=""/>iPod touch</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/5.jpg" alt=""/>Apple TV</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/6.jpg" alt=""/>Accessories</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/7.jpg" alt=""/>Download iTunes 10</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/8.jpg" alt=""/>iTunes Gift Cards</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/9.jpg" alt=""/>Nike + iPod</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/10.jpg" alt=""/>(PRODUCT) RED</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/11.jpg" alt=""/>MobileMe</a></li>
+				<li><a href="http://www.sitejs.com"><img src="img/12.jpg" alt=""/>In-Ear Headphones</a></li>
+			</ul>
+	</div>
+	<div class="miaov_box_foot">
+		<span style="left: 424px;" class="caret"></span>
+		<a class="show">Products</a>
+		<a>iTunes and more</a>
+	</div>
+</div>
+</body>
+</html>

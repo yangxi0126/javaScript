@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: relative;
+        }
+        #topPic{
+            position: absolute;
+            z-index: 20;
+        }
+        #redux{
+            position: absolute;
+            z-index: 30;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img id="topPic" src="../img/han2.jpg" alt=""/>
+    <img id="redux" src="../img/han1.jpg" alt=""/>
+</div>
+</body>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/jquery.eraser.js"></script>
+<script>
+//    addEventListener( "load", init, false );
+
+    function init( event ) {
+        $("#redux").eraser();
+    }
+
+    function remove(event) {
+        $("#redux").eraser('clear');
+        event.preventDefault();
+    }
+
+    function reset(event) {
+        $("#redux").eraser('reset');
+        event.preventDefault();
+    }
+
+    function grow(event) {
+        $("#redux").eraser("size",200);
+        event.preventDefault();
+    }
+    init();
+</script>
+</html>

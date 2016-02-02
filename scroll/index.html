@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery页面滚动元素进入视口发生动画特效插件|DEMO_爱编程w2bc.com</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="http://libs.useso.com/js/bootstrap/3.2.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/tomorrow.min.css">
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<article class="htmleaf-container">
+
+		<div class="container">
+			<div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 class="text-center title">jQuery AniView</h1>
+                    <p class="text-center">A jQuery plugin that works in harmony with animate.css in order to enable animations only when content comes into view.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <p class="text-center aniview description" av-animation="fadeInUp">
+                        jQuery AniView is a minimal (~1KB) jQuery plugin that allows you to add animations to your
+                        webpages with nothing more than a class identifier and a single data attribute. There are also a couple of optional... options.<br><br>Scroll down to see how it works!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview" av-animation="slideInLeft">
+                    <h3>Initialisation:</h3>
+                    <pre class="code javascript">$('.aniview').AniView();</pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview" av-animation="slideInUp">
+                    <h3>Options:</h3>
+                    <pre class="code javascript">
+var options = {
+    animateThreshold: 100,
+    scrollPollInterval: 20
+}
+$('.aniview').AniView(options);</pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview slow options-table" av-animation="fadeIn">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <td>Option</td><td>Type</td><td>Description</td><td>Default</td>
+                        </tr>
+                        <tr>
+                            <td>animateThreshold</td><td>int</td><td>+ve numbers delay the animation sequence until the specified number pixels have come into view. -ve numbers will trigger the animation sequence prior to the element coming into view.</td><td>0</td>
+                        </tr>
+                        <tr>
+                            <td>scrollPollInterval</td><td>int</td><td>The frequency at which the user scrolling is 'polled' i.e. tested. This is in milliseconds (ms) and is an extension jQuery's in-built 'scroll' event/handler.</td><td>20</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview" av-animation="slideInRight">
+                    <h3>Markup:</h3>
+                    <pre class="code html">&lt;div class="aniview" av-animation="slideInRight"&gt;&lt;/div&gt;</pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview more-info" av-animation="bounceInLeft">
+                    <p>
+                        As you scroll down the page, each animation is triggered when the threshold is met.
+                        i.e. when it comes into view by way of the bottom of the user's screen (viewport).
+                    </p>
+                    <p>
+                        Since it uses the freakin awesome <a target="_blank" href="https://daneden.github.io/animate.css/"><span class="animatecss-link">animate.css</span></a> -
+                        it supports all of the same animations that <em>it</em> does.
+                    </p>
+                    <p>
+                        All you have to do is simply declare what you want to use via the <em>av-animation</em> attribute.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview box red" av-animation="rotateInUpLeft">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview box green" av-animation="rotateInUpRight">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview box blue" av-animation="rotateInUpLeft">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview custom-classes" av-animation="slideInLeft">
+                    <p>You could even set up some custom animation classes so that animations occur in a specific order, e.g:</p>
+                    <pre class="code css">
+.fast {
+    -vendor-animation-duration: 1s;
+    -vendor-animation-delay: 0s;
+}
+.slow {
+    -vendor-animation-duration: 3s;
+    -vendor-animation-delay: 1s;
+}
+.reallyslow {
+    -vendor-animation-duration: 6s;
+    -vendor-animation-delay: 3s;
+}</pre>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-md-3 aniview small-box slow" av-animation="rotateInUpLeft">
+            		<img src="img/1.jpg" alt="..." class="img-thumbnail">
+            	</div>
+            	<div class="col-md-3 aniview small-box fast" av-animation="slideInLeft">
+            		<img src="img/1.jpg" alt="..." class="img-thumbnail">
+            	</div>
+            	<div class="col-md-3 aniview small-box fast" av-animation="rotateInUpRight">
+            		<img src="img/1.jpg" alt="..." class="img-thumbnail">
+            	</div>
+            	<div class="col-md-3 aniview small-box slow" av-animation="fadeIn">
+            		<img src="img/1.jpg" alt="..." class="img-thumbnail">
+            	</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview small-box red fast" av-animation="fadeIn">
+                    &lt;div class="aniview fast" av-animation="fadeIn"&gt;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview small-box green slow" av-animation="fadeIn">
+                    &lt;div class="aniview slow" av-animation="fadeIn"&gt;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview small-box blue reallyslow" av-animation="fadeIn">
+                    &lt;div class="aniview reallyslow" av-animation="fadeIn"&gt;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 aniview conclusion" av-animation="fadeInUp">
+                    That should be enough to get you up and running! Check it out!
+                </div>
+            </div>
+
+		</div>
+<script src="/scripts/2bc/_gg_980_90.js" type="text/javascript"></script>
+	</article>
+	
+	<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+	<script type="text/javascript" src="http://libs.useso.com/js/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.aniview.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var i={animateThreshold:100};
+			$(".aniview").AniView(i);
+			$(".code").each(function(i,e){hljs.highlightBlock(e)})});
+	</script>
+</body>
+</html>

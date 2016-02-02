@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+<style>
+#qq { width:200px; height:400px; background:#F9C; }
+#title { width:240px; height:180px; background:#FC6; position:absolute; top:10px; left:220px; display:none; }
+</style>
+<script src="miaov.js"></script>
+<script>
+$(function(){
+	var qq = $('qq');
+	var title = $('title');
+	var timer = null;
+	
+	qq.onmouseover = show;
+	qq.onmouseout = hide;
+	
+	title.onmouseover = show;
+	title.onmouseout = hide;
+	
+	function show(){
+		clearInterval( timer );
+		title.style.display = 'block';
+	}
+	function hide(){
+		timer = setTimeout(function(){
+			title.style.display = 'none';
+		}, 200);
+	}
+});
+</script>
+</head>
+
+<body>
+
+<div id="qq"></div>
+<div id="title"></div>
+
+</body>
+</html>

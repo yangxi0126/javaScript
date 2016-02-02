@@ -1,0 +1,13 @@
+/*=========mF_51xflash========*/
+.mF_51xflash_wrap{padding:8px;border:1px solid #999;float:left;background:#fff;}/*背景边框*/
+.mF_51xflash{ position:relative;}
+.mF_51xflash .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_51xflash .pic{position:absolute;top:0;left:0;overflow:hidden;}
+.mF_51xflash .pic ul{position:static;}
+.mF_51xflash .pic ul li{position:absolute;right:0;}
+.mF_51xflash .pic ul li a,.mF_51xflash .pic ul li a img{display:block;width:100%;height:100%;}
+.mF_51xflash .txt{position:absolute;left:0;bottom:0;width:100%;height:34px;line-height:34px;}
+.mF_51xflash .txt li{position:absolute;width:100%;height:100%;background:#f1f1f1;}
+.mF_51xflash .txt li a{display:block;padding-left:40px;font-size:14px;color:#333;font-weight:bold;text-decoration:none;background:url(img/mF_51xflash/tit-ar.gif) 6px center no-repeat;}
+.mF_51xflash .play,.mF_51xflash .stop{position:absolute;right:10px;bottom:6px;z-index:9;width:30px;height:23px;overflow:hidden;cursor:pointer;background:url(img/mF_51xflash/play.gif) left -25px no-repeat;}
+.mF_51xflash .stop{background-position:left top;}

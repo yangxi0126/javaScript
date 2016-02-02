@@ -1,0 +1,47 @@
+.demo{width:830px; margin:0 auto}
+.cart-sidebar{z-index: 1999;width: 35px;color: #FFFFFF;position: fixed;top: 0;right: 0;background: #000000;height:100%;}
+.cart{color: #fff;text-align:center;line-height: 20px;padding: 200px 0 0 0px;}
+.cart span{display:block;width:20px;margin:0 auto;}
+.cart i{width:35px;height:35px;display:block; background:url(../images/cart.png) no-repeat;}
+#tip{position:fixed; top:300px; right:35px; z-index:10000; width:1px; height:52px; line-height:52px; font-size:20px; text-align:center; color:#fff; background:#360; display:none}
+.per{float:left; border:1px solid #e0e0e0; text-align:center;padding:10px 0;width:198px;margin-right: 5px}
+.per .title{  text-align:left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width:180px;margin:0 0 10px 10px}
+.per:hover{border:1px solid #f90}
+.per h3{line-height:32px; font-size:14px; color:#f30;font-weight:500}
+.per h3 span{font-size:20px}
+.flyer-img{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+
+.button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 16px/100% 'Microsoft yahei',Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .5em; 
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-per-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-per-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+/*****加入购物车按钮****/
+.button:hover {
+    text-decoration: none;
+}
+.orange {
+    color: #fef4e9;
+    border: solid 1px #da7c0c;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+.orange:hover {
+    background: #f47c20;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+    background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}

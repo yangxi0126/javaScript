@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+.wrap{ width:200px;height:200px;padding:200px;border:1px solid #000; -webkit-perspective:800px;}
+.box{width:200px;height:200px; position:relative; -webkit-transform-style:preserve-3d; transition:3s all;-webkit-transform: translateZ(-100px) rotateX(0deg);}
+.box div{width:200px;height:200px; position:absolute; font-size:100px; font-weight:bold; line-height:200px; text-align:center; color:#fff;left:0;top:0;}
+.box div:nth-of-type(1){ background:Red;-webkit-transform:translateZ(100px);}
+.box div:nth-of-type(2){ background:blue;-webkit-transform-origin:top;-webkit-transform:translateZ(-100px) rotateX(90deg);}
+.box div:nth-of-type(3){ background:yellow;-webkit-transform:translateZ(-100px) rotateX(180deg);}
+.box div:nth-of-type(4){ background:green; -webkit-transform-origin:bottom;-webkit-transform:translateZ(-100px) rotateX(-90deg);}
+.wrap:hover .box{ -webkit-transform: translateZ(-100px) rotateX(180deg);}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="box">
+    	<div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</div>
+</body>
+</html>

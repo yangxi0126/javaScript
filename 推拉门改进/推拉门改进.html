@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>推拉门改进</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+        }
+        #picLists{
+            border:1px solid #000;
+            position:relative;
+            width:1000px;
+            height:400px;
+            margin:0 auto;
+            overflow:hidden;
+        }
+        img{
+            width:100%;
+            height:400px;
+            cursor:pointer;
+        }
+        #picLists ul li{
+            position:absolute;
+            width:1000px;
+            height:400px;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div id="picLists">
+    <ul>
+        <li>
+            <img src="han1.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="han2.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="han3.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="han4.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="han5.jpg" alt=""/>
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var n=0;
+        var myLi=$('#picLists').find('li');
+        for(var i=0;i<myLi.length;i++){
+            myLi.eq(i).css({left:i*200+'px'});
+        }
+        myLi.hover(function(){
+            var liIndex=$(this).index();
+            for(var j=1;j<=liIndex;j++){
+                myLi.eq(j).stop().animate({left:j*100+'px'},300);
+            }
+            for(var j=liIndex+1;j<myLi.length;j++){
+                myLi.eq(j).stop().animate({left:500+j*100+'px'},300);
+            }
+        },function(){
+            for(var i=0;i<myLi.length;i++){
+                myLi.eq(i).stop().animate({left:i*200+'px'},300);
+            }
+        });
+    });
+</script>
+</html>

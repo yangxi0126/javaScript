@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>我的test</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font-family:"Microsoft YaHei";
+        }
+        table{
+            margin-top:20px;
+            border:1px solid #000;
+            border-collapse:collapse;
+        }
+        table tr td{
+            border:1px solid #000;
+            padding:5px 10px;
+        }
+    </style>
+</head>
+<body>
+<input type="text"/>
+<input type="button" value="查找" onclick="find();"/>
+<table>
+    <tr>
+        <td>1</td>
+        <td>C#</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>C++</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>js</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Jquery</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>html</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>PHP</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Perl</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>PASCAL</td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    function find(){
+        var str=/^\S+$/;
+        var findText=$('input').eq(0).val();
+        if(str.test(findText)){
+            $('tr').hide().filter(':contains('+findText+')').show();
+        }else{
+            $('tr').show();
+        }
+    }
+</script>
+</html>

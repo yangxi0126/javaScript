@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>轮播</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font-family:'微软雅黑';
+        }
+        .content{
+            position:relative;
+            margin:0 auto;
+            width:520px;
+            height:280px;
+            overflow:hidden;
+        }
+        .picBox{
+            width:5200px;
+        }
+        .picBox img{
+            float:left;
+            cursor:pointer;
+        }
+        .btns{
+            position:absolute;
+            z-index:99;
+        }
+        .circles{
+            position:absolute;
+            width:300px;
+            left:400px;
+            top:240px;
+        }
+        .circles li{
+            list-style:none;
+            display:inline-block;
+            width:15px;
+            height:15px;
+            border-radius:50%;
+            background:#ccc;
+            opacity:0.7;
+            cursor:pointer;
+        }
+        .circles .red{
+            background:red;
+        }
+        .left,.right{
+            width:40px;
+            height:40px;
+            background:rgba(0,0,0,0.7);
+            position:absolute;
+            top:120px;
+            cursor:pointer;
+            font-size:25px;
+            line-height:40px;
+            text-align:center;
+            color:#ffffff;
+        }
+        .left{
+            left:-40px;
+        }
+        .right{
+            left:520px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="picBox">
+        <img src="img/1.png" alt=""/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+        <img src="img/5.jpg" alt=""/>
+    </div>
+    <div class="btns">
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+        <ul class="circles">
+            <li class="red"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    var timer;//定时器
+    var i=0;//图片编号
+//    自动播放
+    $('.content').hover(function(){
+        clearInterval(timer);
+        $('.left').stop(false,true).animate({left:'0px'},200);
+        $('.right').stop(false,true).animate({left:'480px'},200);
+    },function(){
+        $('.left').stop(false,true).animate({left:'-40px'},200);
+        $('.right').stop(false,true).animate({left:'520px'},200);
+        timer=setInterval(function(){
+            i++;
+            if(i>4){
+                i=0;
+            }
+            $('.circles li').eq(i).addClass('red').siblings().removeClass('red');
+            $('.picBox').stop(false,true).animate({marginLeft:-520*i+'px'},500);
+        },1000);
+    }).trigger('mouseleave');
+//    点击左右
+    $('.left').on('click',function(){
+       if(!$('.picBox').is(':animated')){
+           i--;
+           if(i<0){
+               i=4;
+           }
+           $('.circles li').eq(i).addClass('red').siblings().removeClass('red');
+           $('.picBox').stop(false,true).animate({marginLeft:-520*i+'px'},500);
+       }
+    });
+    $('.right').on('click',function(){
+        if(!$('.picBox').is(':animated')){
+            i++;
+            if(i>4){
+                i=0;
+            }
+            $('.circles li').eq(i).addClass('red').siblings().removeClass('red');
+            $('.picBox').stop(false,true).animate({marginLeft:-520*i+'px'},500);
+        }
+    });
+//    点击li
+    $('.circles li').on('click',function(){
+        if(!$('.picBox').is(':animated')){
+            var picIndex=$(this).index();
+            i=picIndex;
+            $(this).addClass('red').siblings().removeClass('red');
+            $('.picBox').stop(false,true).animate({marginLeft:-520*picIndex+'px'},500);
+        }
+    });
+</script>
+</html>

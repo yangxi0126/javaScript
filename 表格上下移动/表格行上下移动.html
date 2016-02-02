@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>111</td>
+        <td>
+            <span onclick="up(this);">上移</span>
+            <span onclick="down(this);">下移</span>
+        </td>
+    </tr>
+    <tr>
+        <td>222</td>
+        <td>
+            <span onclick="up(this);">上移</span>
+            <span onclick="down(this);">下移</span>
+        </td>
+    </tr>
+    <tr>
+        <td>333</td>
+        <td>
+            <span onclick="up(this);">上移</span>
+            <span onclick="down(this);">下移</span>
+        </td>
+    </tr>
+    <tr>
+        <td>444</td>
+        <td>
+            <span onclick="up(this);">上移</span>
+            <span onclick="down(this);">下移</span>
+        </td>
+    </tr>
+    <tr>
+        <td>555</td>
+        <td>
+            <span onclick="up(this);">上移</span>
+            <span onclick="down(this);">下移</span>
+        </td>
+    </tr>
+</table>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    function up(obj){
+        var This=$(obj).parent().parent();
+        var prev=This.prev();
+        if(prev.length>0){
+            This.insertBefore(prev);
+        }
+    }
+    function down(obj){
+        var This=$(obj).parent().parent();
+        var next=This.next();
+        if(next.length>0){
+            This.insertAfter(next);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>百度搜索</title>
+    <style type="text/css">
+        li{
+            list-style:none;
+        }
+        #q{
+            width:300px;
+            height:30px;
+            padding:5px;
+            border:1px solid #f90;
+            font-size:16px;
+        }
+        #ul1{
+            width:310px;
+            margin:0;
+            padding:0;
+            border:1px solid #f90;
+            display:none;
+        }
+        #ul1 li a{
+            line-height:30px;
+            padding:5px;
+            color:black;
+            text-decoration:none;
+            display:block;
+        }
+        #ul1 li a:hover{
+            background:#f90;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<input id="q" type="text"/>
+<ul id="ul1">
+    <!--<li><a href="">11111</a></li>-->
+    <!--<li><a href="">11111</a></li>-->
+    <!--<li><a href="">11111</a></li>-->
+</ul>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    function creScript(obj){
+        var newScript=document.createElement('script');
+        newScript.src=obj;
+        document.body.appendChild(newScript);
+    }
+    function miaov(data){
+        var myUl=$('#ul1');
+        myUl.html('');
+        if(data.s.length){
+            myUl.css({display:'block'});
+            for(var i=0;i<data.s.length;i++){
+                myUl.append('<li><a href="http://www.baidu.com/s?wd="'+data.s[i]+'>'+data.s[i]+'</a></li>');
+            }
+        }else{
+            myUl.css({display:'none'});
+        }
+    }
+    $(function(){
+        var myQ=$('#q');
+        var myUl=$('#ul1');
+        myQ.keyup(function(){
+            var str=/^\S+$/;
+            if(str.test(myQ.val())){
+                creScript('http://suggestion.baidu.com/su?wd='+myQ.val()+'&cb=miaov');
+            }else{
+                myUl.css({display:'none'});
+            }
+        });
+    });
+</script>
+</html>

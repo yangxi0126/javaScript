@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>拖拽</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        img{
+            width:300px;
+            height:200px;
+
+        }
+        div{
+            position:absolute;
+            width:300px;
+            height:200px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+    11111111111111
+    <img src="han1.jpg" alt=""/>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var mydiv=document.getElementById('test');
+        mydiv.onmousedown=function(e){
+            var ev=e||window.event;
+            var disX=ev.clientX-mydiv.offsetLeft;
+            var disY=ev.clientY-mydiv.offsetTop;
+            if(mydiv.setCapture){
+                mydiv.setCapture();//解决IE8以下文本层问题
+            }
+            document.onmousemove=function(e){
+                var ev=e||window.event;
+                mydiv.style.left=ev.clientX-disX+'px';
+                mydiv.style.top=ev.clientY-disY+'px';
+            };
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+                if(mydiv.releaseCapture){
+                    mydiv.releaseCapture();
+                }
+            };
+            return false;
+        }
+    });
+</script>
+</html>

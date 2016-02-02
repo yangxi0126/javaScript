@@ -1,0 +1,28 @@
+/*=========mF_fancy ========*/
+.mF_fancy{ position:relative;}
+.mF_fancy .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_fancy .pic{position:absolute;z-index:1;}
+.mF_fancy .pic ul{ position:absolute; top:0;left:0;height:100%; overflow:hidden;}
+.mF_fancy .pic ul li{ position:absolute;top:0;left:0; display:none; overflow:hidden;}
+.mF_fancy .txt{position:absolute;z-index:2; top:12px;left:12px; width:80%; color:#fff;}
+.mF_fancy .txt li{position:absolute;top:0;width:100%; padding:12px; visibility:hidden; opacity:0;-webkit-transition:all .4s;-moz-transition:all .4s;-o-transition:all .4s;}
+.mF_fancy .txt li a{display:block;color:#fff;font-size:14px;font-weight:bold;text-decoration:none; font-family:'微软雅黑';}/*标题样式*/
+.mF_fancy .txt li p{ display:none;}/*隐藏详细描述文字*/
+.mF_fancy .txt li.current{ visibility:visible; opacity:1;}
+.mF_fancy .num{ position:absolute;bottom:0;left:0;width:100%; overflow:hidden; z-index: 2}
+/*ul的height:12px;是自己添加的*/
+.mF_fancy .num ul{width:120%; background:#666; margin-left:-1px;height: 12px;}
+.mF_fancy .num ul li{ display:inline-block;*display:inline;*zoom:1; height:13px;  border-left:1px solid #ddd;background:#666; overflow:hidden; cursor:pointer;-webkit-transition:all .4s;-moz-transition:all .4s;-o-transition:all .4s;}
+.mF_fancy .num ul li:hover{ background:#ddd;}
+.mF_fancy .num ul li.current{ background:#090909; cursor:default;}
+.mF_fancy .num ul li a{ display:none;}
+/*.mF_fancy .thumb的bottom:34px;是自己修改的，默认为40px*/
+.mF_fancy .thumb{ position:absolute; left:0;bottom:36px; width:100%; z-index:9;}
+.mF_fancy .thumb ul{width:120%;}
+.mF_fancy .thumb ul li{display:inline-block!important;*display:inline!important;*zoom:1;position:relative; visibility:hidden; cursor:pointer;}
+.mF_fancy .thumb ul li img{ width:100%;}
+.mF_fancy .prev,.mF_fancy .next{font:700 53px/58px arial;width:37px;height:65px;overflow:hidden;position:absolute;z-index:9;left:0;cursor:pointer; top:40%;}
+.mF_fancy .next{left:auto;right:0;}
+.mF_fancy .prev a,.mF_fancy .next a{display:block;color:#fff;text-align:center;text-decoration:none;visibility:hidden; opacity:0;-webkit-transition:all .4s;-moz-transition:all .4s;-o-transition:all .4s;}
+.mF_fancy .prev a:hover,.mF_fancy .next a:hover{color:#f60;}
+.mF_fancy .show a{ visibility:visible; opacity:1;}

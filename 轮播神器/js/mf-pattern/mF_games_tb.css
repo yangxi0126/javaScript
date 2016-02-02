@@ -1,0 +1,20 @@
+/*=========mF_games_tb========*/
+.mF_games_tb_wrap{padding:8px;border:1px solid #999;float:left;background:#fff;}/*背景边框*/
+.mF_games_tb {background:#f1f1f1; position:relative;}
+.mF_games_tb .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_games_tb .pic{position:absolute;top:0;left:0;}
+.mF_games_tb .pic li{position:absolute;width:100%;height:100%;overflow:hidden;display:none;}
+.mF_games_tb .thumb{position:absolute;bottom:0;left:0;overflow:hidden;}
+.mF_games_tb .thumb ul{position:absolute;top:0;left:0;}
+.mF_games_tb .thumb ul li{position:relative;float:left;overflow:hidden;cursor:pointer;}
+.mF_games_tb .thumb ul li a{display:block;border:3px solid #D3D3D3; margin:10px 4px;}
+.mF_games_tb .thumb ul li img{position:relative;z-index:1;width:100%;height:100%;}
+.mF_games_tb .thumb ul li.current{background:url(img/mF_games_tb/ar.gif) center 5px no-repeat;}
+.mF_games_tb .thumb ul li.current a{border-color:#FF8C00;}
+.mF_games_tb .txt li{position:absolute;z-index:2;width:100%;height:38px;line-height:38px;display:none;}/*默认标题高度*/
+.mF_games_tb .txt li a{display:block;position:relative;z-index:1;color:#fff;padding-left:16px;font-size:14px;font-weight:bold;text-decoration:none;}/*标题样式*/
+.mF_games_tb .txt li b{display:block;height:100%;width:100%;position:absolute;top:0;left:0;background:#000;filter:alpha(opacity=30);opacity:0.3;}
+.mF_games_tb .prev,.mF_games_tb .next{font:bold 28px/28px arial;width:16px;overflow:hidden;position:absolute;z-index:4;left:0;bottom:11px;cursor:pointer;}
+.mF_games_tb .next{left:auto;right:0;}
+.mF_games_tb .prev a,.mF_games_tb .next a{display:block;color:#bbb;text-align:center;text-decoration:none;}
+.mF_games_tb .prev a:hover,.mF_games_tb .next a:hover{color:#f60;}

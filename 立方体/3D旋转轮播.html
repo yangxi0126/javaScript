@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>3D轮播旋转图</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        .wrap{
+            width:200px;
+            height:200px;
+            padding:200px;
+            border:1px solid #000;
+            /*井深*/
+            -webkit-perspective:800px;
+        }
+        .wrap:hover .box{
+            -webkit-transform:rotateX(180deg);
+        }
+        .box{
+            width:200px;
+            height:200px;
+            position:relative;
+            /*3D显示*/
+            -webkit-transform-style:preserve-3d;
+            -webkit-transition:2s all linear;
+            -webkit-transform:translateZ(-100px);
+        }
+        .box div{
+            width:200px;
+            height:200px;
+            position:absolute;
+            color:#000;
+            font-size:100px;
+            line-height:200px;
+            text-align:center;
+        }
+        .box div:nth-child(1){
+            background:red;
+            top:-200px;
+            left:0;
+            -webkit-transform-origin:bottom;
+            -webkit-transform:translateZ(100px) rotateX(90deg);
+        }
+        .box div:nth-child(2){
+            background:blue;
+            top:0;
+            left:-200px;
+            -webkit-transform-origin:right;
+            -webkit-transform:translateZ(100px) rotateY(-90deg);
+        }
+        .box div:nth-child(3){
+            background:yellow;
+            top:0;
+            left:0;
+            -webkit-transform:translateZ(100px);
+        }
+        .box div:nth-child(4){
+            background:green;
+            top:0;
+            left:200px;
+            -webkit-transform-origin:left;
+            -webkit-transform:translateZ(100px) rotateY(90deg);
+        }
+        .box div:nth-child(5){
+            background:pink;
+            top:200px;
+            left:0;
+            -webkit-transform-origin:top;
+            -webkit-transform:translateZ(100px) rotateX(-90deg);
+        }
+        .box div:nth-child(6){
+            background:#f06;
+            top:0;
+            left:0;
+            -webkit-transform:translateZ(-100px) rotateX(180deg);
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>

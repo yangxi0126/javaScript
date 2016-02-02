@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>jsonp</title>
+</head>
+<body>
+<input type="button" value="添加"/>
+<ul id="ul1"></ul>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    function fn(data){
+        var myUl=$('#ul1');
+        for(var i=0;i<data.length;i++){
+            myUl.append('<li>'+data[i]+'</li>');
+        }
+    }
+</script>
+<script type="text/javascript">
+    function creScript(obj){
+        var newScript=document.createElement('script');
+        newScript.src=obj;
+        document.body.appendChild(newScript);
+    }
+    $('input').on('click',function(){
+        creScript('C:/Users/Administrator/Desktop/jsonp.txt');
+    });
+</script>
+</html>

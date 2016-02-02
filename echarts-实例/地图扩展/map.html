@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<!--1.直接js引入的话，echarts必须用下面的-->
+<script src="js/echarts-all.js"></script>
+<script>
+    var cityMap={
+        "成都市":"510100"
+    };
+    var mapType=[];
+    var mapGeoData = echarts.util.mapData.params;
+    for (var city in cityMap) {
+        mapType.push(city);
+        // 自定义扩展图表类型
+        mapGeoData.params[city] = {//city
+            getGeoJson: (function (c) {//city对应的县级数据
+                var geoJsonName = cityMap[c];
+                return function (callback) {
+                    $.getJSON('js/' + geoJsonName + '.json', callback);
+                }
+            })(city)
+        }
+    }
+
+
+    option = {
+        dataRange: {
+            min: 0,
+            max: 2500,
+            x: 'left',
+            y: 'bottom',
+            color: ['orange','yellow'],
+            text:['高','低'],           // 文本，默认为数值文本
+            calculable : true
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: '{b}'
+        },
+        series : [
+            {
+                type: 'map',
+                mapType: '成都市',
+                selectedMode : 'single',
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {'name':'温江区','value':'1000'}
+                ]
+            }
+        ]
+    };
+
+    var myChart=echarts.init(document.getElementById('main'));
+    myChart.setOption(option);
+
+
+
+</script>
+</html>

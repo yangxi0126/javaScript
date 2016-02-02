@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>窗口登陆效果-蚂蚁部落</title>
+    <style type="text/css">
+        #win
+        {
+            position:relative;
+            width:100px;
+            height:100px;
+            background-color:#666;
+        }
+    </style>
+    <script type="text/javascript">
+        var a=['top','left'];
+        var b=0;
+        var u;
+        function fudu()
+        {
+            win.style[a[b%2]]=(b++)%4<2?"0px":"4px";
+            if(b>15)
+            {
+                clearInterval(u);
+                b=0
+            }
+        }
+        function zd()
+        {
+            clearInterval(u);
+            u=setInterval(fudu,32)
+        }
+        window.onload=function()
+        {
+            var bt=document.getElementById("bt");
+            var win=document.getElementById("win");
+            bt.onclick=zd;
+        }
+    </script>
+</head>
+<body >
+<button id="bt">点击振动</button>
+<div id="win"></div>
+</body>
+</html>

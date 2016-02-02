@@ -1,0 +1,12 @@
+/*=========mF_expo2010 --2010世博主题========*/
+.mF_expo2010{ position:relative;}
+.mF_expo2010 .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_expo2010 .pic li{position:absolute;}
+.mF_expo2010 .txt_bg{position:absolute;bottom:0;z-index:1;height:36px;width:100%;background:#000;filter:alpha(opacity=40);opacity:0.4;}/*标题背景*/
+.mF_expo2010 .txt li{position:absolute;z-index:2;left:0;height:36px;line-height:36px;}
+.mF_expo2010 .txt li a{display:block;color:#fff;padding:2px 0 0 16px;font-size:14px;font-weight:bold;text-decoration:none;}/*标题样式*/
+.mF_expo2010 .num{position:absolute;z-index:3;bottom:8px;right:8px;}
+.mF_expo2010 .num li{float:left;position:relative;width:22px;height:18px;line-height:18px;overflow:hidden;text-align:center;margin-right:1px;cursor:pointer;}
+.mF_expo2010 .num li a,.mF_expo2010 .num li b{position:absolute;z-index:2;display:block;color:#fff;width:100%;height:100%;top:0;left:0;text-decoration:none;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;}/*按钮样式*/
+.mF_expo2010 .num li b{z-index:1;background:#fff;filter:alpha(opacity=50);opacity:0.5;}
+.mF_expo2010 .num li.hover a,.mF_expo2010 .num li.current a{background:#F60;}/*当前/悬停按钮*/

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="页面1"/>
+<input type="button" value="页面2"/>
+<iframe id="iframePage" src="1.html" frameborder="0" scrolling="no"></iframe>
+</body>
+<script>
+//  contentWindow所有浏览器支持，contentDocument IE不支持;  window.parant当前页面的父页面，window.top当前页面的最外层页面
+//  iframe防钓鱼:if(window!=window.top){window.top.location.href=window.location.href} 如果最顶层页面不是当前页面，就把最顶层网址指向当前页面网址
+    window.onload=function(){
+        var oIframe=document.getElementById('iframePage');
+        var aBtn=document.getElementsByTagName('input');
+        changeHeight();
+        function changeHeight(){
+            setTimeout(function(){  //必须加一个延迟，不然高度改变会和页面加载冲突，事先不了高度变化
+                oIframe.height=oIframe.contentWindow.document.body.offsetHeight;
+            },100);
+        }
+        aBtn[0].onclick=function(){
+            oIframe.src='1.html';
+            changeHeight();
+        };
+        aBtn[1].onclick=function(){
+            oIframe.src='2.html';
+            changeHeight();
+        };
+    };
+</script>
+</html>

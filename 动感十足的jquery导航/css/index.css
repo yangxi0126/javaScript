@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+    margin:0;
+    padding:0;
+}
+body {
+    background: #333;
+	font-family: Futura, "Century Gothic", AppleGothic, sans-serif;
+	overflow: hidden;
+}
+h2.title_name {
+	font-family: normal Georgia,'Times New Roman',Times,serif;
+	font-weight: normal;
+	font-size: 4em;
+	margin: 0;
+	padding: 50px 0 20px 50px;
+	color: #AAA;
+}
+h2.title_name span {
+	font-family: normal Georgia,'Times New Roman',Times,serif;
+	color: #f9f66d;
+	font-size: 0.9em;
+}
+h2.title_name small {
+	color: #666;
+	display: block;
+	font-family: normal Verdana,Arial,Helvetica,sans-serif;
+	font-size: 0.2em;
+	letter-spacing: 1.0em;
+	text-transform: uppercase;
+	padding-left: 5px;
+	text-align: center;
+}
+/* CONTAINER */
+.littleBoxes{
+    width: 380px;
+    margin: 100px auto 380px auto;
+    position: relative;
+}
+.littleBoxes div{
+	width: 90px;
+    position: absolute;
+    text-align: center;
+    border: 2px solid white;
+    overflow: hidden;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 0px 3px #555;
+    -webkit-box-shadow: 0px 0px 3px #555;
+    box-shadow: 0px 0px 3px #555;
+    background-position: center center;
+    z-index: 999;
+}
+.littleBoxes div a{
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    display: block;
+    line-height: 90px;
+    text-decoration: none;
+    color: #fff;
+    background: #91EF4A;
+    outline: none;
+    text-shadow: 1px 1px 1px #888;
+    -moz-box-shadow: 1px 1px 3px #777;
+    -webkit-box-shadow: 1px 1px 3px #777;
+    box-shadow: 1px 1px 3px #777;
+}
+.littleBoxes div.boxcontent{
+    width: 334px;
+    text-align:left;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    border: 2px solid #fff;
+    margin: 10px auto 0 auto;
+    text-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 3px #777;
+    -webkit-box-shadow: 1px 1px 3px #777;
+    box-shadow: 1px 1px 3px #777;
+    opacity: 0.8;
+    display: none;
+	position: relative;
+	overflow: hidden;
+}
+.littleBoxes div.boxcontent p {
+	color: #333;
+	line-height: 1.5em;
+}
+.bg1, .bg2, .bg3, .bg4{
+    background-repeat:no-repeat;
+}
+.bg1{
+    background-image:url(../images/1.jpg);    
+}
+.bg2{
+    background-image:url(../images/2.jpg);
+}
+.bg3{
+    background-image:url(../images/3.jpg);
+}
+.bg4{
+    background-image:url(../images/4.jpg);
+}
+.bg5{
+	height: 90px;
+    background-image:url(../images/5.jpg);
+}

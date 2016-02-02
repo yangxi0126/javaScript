@@ -1,0 +1,14 @@
+/*=========mF_qiyi --奇艺主题========*/
+.mF_qiyi_wrap{position:relative;float:left;overflow:hidden;padding:6px;border:1px solid #333;}/*背景边框*/
+.mF_qiyi .loading{color:#f60;background:#333 url(img/mF_qiyi/bg.jpg) center no-repeat; z-index:9;}/*载入背景*/
+.mF_qiyi .slider{height:100%;position:absolute;overflow:hidden;}
+.mF_qiyi .slider .pic{height:100%;width:100%;}
+.mF_qiyi .slider .pic li{height:100%;overflow:hidden;float:left;}
+.mF_qiyi .slider .txt{width:100%;}
+.mF_qiyi .slider .txt li{position:relative;float:left;height:34px;line-height:34px;}/*默认标题高度*/
+.mF_qiyi .slider .txt li a{display:block;position:relative;z-index:1;color:#fff;padding-left:16px;font-size:14px;font-weight:bold;text-decoration:none;}/*文字样式*/
+.mF_qiyi .slider .txt li b{display:block;height:100%;width:100%;position:absolute;top:0;left:0;background:#000;filter:alpha(opacity=40);opacity:0.4;}
+.mF_qiyi .num{position:absolute;z-index:2;bottom:6px;right:12px;}
+.mF_qiyi .num li{float:left;width:18px;height:16px;line-height:16px;margin-left:4px;overflow:hidden;text-align:center;border:1px solid #000;cursor:pointer;}
+.mF_qiyi .num li a{color:#000;display:block;background:#ccc;text-decoration:none;}
+.mF_qiyi .num li.current a,.mF_qiyi .num li.hover a{background:#f60;color:#fff;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;}/*当前/悬停按钮样式*/

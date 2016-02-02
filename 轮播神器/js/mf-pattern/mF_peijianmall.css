@@ -1,0 +1,15 @@
+/*=========mF_peijianmall========*/
+.mF_peijianmall{ position:relative;}
+.mF_peijianmall .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_peijianmall .pic ul{position:absolute;}
+.mF_peijianmall .pic ul li{overflow:hidden;}
+.mF_peijianmall .pic ul.left li{float:left;}
+.mF_peijianmall .pic ul.right li{float:right;}
+.mF_peijianmall .txt{position:absolute;z-index:2;left:18px;bottom:10px;}
+.mF_peijianmall .txt li{float:left; position:relative;margin-right:10px;height:40px;width:68px;overflow:hidden;cursor:pointer;border:1px solid #f90; border-radius:3px;}
+.mF_peijianmall .txt li b{background:#FBF6DC; width:100%; height:100%; opacity:0.8; filter:alpha(opacity=80); position:absolute; top:0;-webkit-transition:color 0.4s;-moz-transition:color 0.4s;-o-transition:color 0.4s; }
+.mF_peijianmall .txt li a{ display:block;padding:3px;color:#D3520C; text-decoration:none; position:relative; z-index:1;-webkit-transition:color 0.4s;-moz-transition:color 0.4s;-o-transition:color 0.4s;}
+.mF_peijianmall .txt li.current{border:1px solid #c00;}
+.mF_peijianmall .txt li.current b{background:#FB7917;}
+.mF_peijianmall .txt li.current a{color:#fff;}
+.mF_peijianmall .txt li p{ display:none;}

@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei";
+    font-weight: normal;
+}
+body{
+    background: #fff;
+}
+.section1,.section2,.section3,.section4{
+    overflow: hidden;
+}
+.link-box{
+    margin-top: 100px;
+    text-align: center;
+}
+.link-box a{
+    font-size: 15px;
+}
+.section1{
+    background: url("../images/hero_sunset_large_2x.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.section1 h1{
+    margin-top: 100px;
+    font-size: 50px;
+    text-align: center;
+    color: #e0e0e0;
+}
+.section1 p{
+    margin-top: 900px;
+    font-size: 15px;
+    text-align: center;
+    color: #c3c3c3;
+}
+.section1 a{
+    color: #ac7015;
+}
+.section2{
+    background: url("../images/technology_hero_large_2x.jpg") #f2f2f2;
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+.section2 h1{
+    text-align: center;
+    color: #555555;
+    font-size: 75px;
+    margin-top: 50px;
+}
+.section2 .link-box{
+    margin-top: 50px;
+}
+.section2 a{
+    color: #5ea3d7;
+}
+.section3{
+    background: url("../images/timekeeping_hero_large_2x.jpg");
+    background-position: bottom;
+    background-size: 30% 60%;
+    background-repeat: no-repeat;
+}
+.section3 h1{
+    text-align: center;
+    color: #555555;
+    font-size: 35px;
+    margin-top: 40px;
+    margin-left: -150%;
+}
+.section3 p{
+    text-align: center;
+    color: #555555;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 150%;
+}
+.section3 .link-box{
+    margin-top: 30px;
+}
+.section3 a{
+    color: #5ea3d7;
+}
+.section4 h1{
+    text-align: center;
+    color: #555555;
+    font-size: 35px;
+    margin-top: 40px;
+}
+.row{
+    width: 96%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 40px;
+}
+.col{
+    width: 25%;
+    margin-left: 2%;
+    float: left;
+    background: #eff2ee;
+    text-align: center;
+    padding: 30px;
+}
+.col p{
+    text-align: center;
+    font-size: 13px;
+    margin-top: 10px;
+}
+.col .link-box{
+    margin-top: 10px;
+}
+.col .link-box a{
+    font-size: 13px;
+    color: #5ea3d7;
+}
+.pic-box img{
+    width: 150px;
+    margin-bottom: 15px;
+}
+.apple-box img,.apple-box span{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.apple-box span{
+    font-weight: 600;
+    font-size: 18px;
+    font-family: Arial;
+}

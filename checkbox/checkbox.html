@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .checkBoxClass{
+            display: none;
+        }
+        .checkBoxLabel{
+            background: url("images/UnCheck.png") no-repeat;
+            padding-left: 30px;
+            padding-top: 3px;
+            margin: 5px;
+            height: 25px;
+            width: 50px;
+            display: block;
+            cursor: pointer;
+        }
+        .checkBoxLabel:hover{
+            text-decoration: underline;
+        }
+        .checkBoxSelected{
+            background: url("images/Check.png") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<input id="checkbox1" class="checkBoxClass" type="checkbox"/>
+<label for="checkbox1" class="checkBoxLabel">选项1</label>
+<input id="checkbox2" class="checkBoxClass" type="checkbox"/>
+<label for="checkbox2" class="checkBoxLabel">选项2</label>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $('.checkBoxClass').on('change',function(){
+        if($(this).is(':checked')){
+            $(this).next().addClass('checkBoxSelected');
+        }else{
+            $(this).next().removeClass('checkBoxSelected');
+        }
+    });
+</script>
+</html>

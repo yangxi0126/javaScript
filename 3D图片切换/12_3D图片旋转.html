@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style id="css">
+.box{ width:800px;margin:30px auto;}
+#picList{margin:0;padding:0; height:360px; -webkit-perspective:800px;}
+#picList li{width:25px;height:360px; position:relative;list-style:none;float:left;-webkit-transform-style:preserve-3d;-webkit-transform: translateZ(-180px) rotateX(0deg);}
+#picList a {position:absolute;left:0;top:0; width:100%;height:100%;}
+#picList a:nth-of-type(1){ background-image:url(img/1.jpg);-webkit-transform:translateZ(180px);}
+#picList a:nth-of-type(2){ background:url(img/2.jpg) no-repeat;-webkit-transform-origin:top;-webkit-transform:translateZ(-180px) rotateX(90deg);}
+#picList a:nth-of-type(3){ background:url(img/3.jpg) no-repeat;-webkit-transform:translateZ(-180px) rotateX(180deg);}
+#picList a:nth-of-type(4){ background:url(img/4.jpg) no-repeat;-webkit-transform-origin:bottom;-webkit-transform:translateZ(-180px) rotateX(-90deg);}
+#picList span{ width:360px;height:360px; background:#333; position:absolute;top:0;}
+#picList span:nth-of-type(1){ left:0; -webkit-transform-origin:left; -webkit-transform:translateZ(180px) rotateY(90deg);}
+#picList span:nth-of-type(2){ right:0; -webkit-transform-origin:right; -webkit-transform:translateZ(180px) rotateY(-90deg);}
+#btns{padding:50px; height:30px;}
+#btns li{ height:30px;width:30px; background:#000;color:#fff; font-size:16px; text-align:center; line-height:30px; margin:0 10px; float:left; border-radius:50%; list-style:none;}
+#btns .active{ background:#f60;}
+</style>
+<script>
+window.onload=function()
+{
+	var oPicList=document.getElementById("picList");
+	var oCss=document.getElementById("css");
+	var aBtns=document.getElementById("btns").getElementsByTagName("li");
+	var aPic=[];
+	var iLiW=25;
+	var sHtml="";
+	var sStyle="";
+	var iZindex=0;
+	var iLength=oPicList.clientWidth/iLiW;
+	var iNow=0;
+	for(var i=0;i<iLength;i++)
+	{
+		i>iLength/2?iZindex--:iZindex++;
+		sStyle+="#picList li:nth-of-type("+(i+1)+"){z-index:"+iZindex+"}";
+		sStyle+="#picList li:nth-of-type("+(i+1)+") a{background-position:-"+i*iLiW+"px 0px}";
+		sHtml+='<li><a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a><span></span><span></span></li>';
+	}
+	oPicList.innerHTML=sHtml;
+	oCss.innerHTML+=sStyle;
+	aPic=oPicList.getElementsByTagName("li");
+	for(var i=0;i<aBtns.length;i++)
+	{
+		aBtns[i].onclick=(function(a){
+			return function()
+			{
+				aBtns[iNow].className="";
+				for(var i=0;i<aPic.length;i++)
+				{
+					with(aPic[i].style)
+					{
+						transition=0.5*Math.abs(iNow-a)+"s "+i*50+"ms all ease-in-out";
+						WebkitTransform="translateZ(-180px) rotateX(-"+a*90+"deg)";
+					}
+				}
+				this.className="active";
+				iNow=a;
+			}
+		})(i);
+	}
+};
+</script>
+</head>
+<body>
+<div class="box">
+	<ul id="picList">
+    </ul>
+    <ol id="btns">
+    	<li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+</div>
+</body>
+</html>

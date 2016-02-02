@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>碰撞</title>
+    <!--<link rel="stylesheet" href="css/test.css">-->
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #mydiv{
+            width:100px;
+            height:100px;
+            background:red;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="mydiv"></div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var mydiv=document.getElementById('mydiv');
+        var iSpeedX=10;
+        var iSpeedY=10;
+        startMove();
+        function startMove(){
+            setInterval(function(){
+                var newLeft=mydiv.offsetLeft+iSpeedX;
+                var newTop=mydiv.offsetTop+iSpeedY;
+                if(newTop<=0){
+                    newTop=0;
+                    iSpeedY=-iSpeedY;
+                }
+                if(newTop>=(document.documentElement.clientHeight-mydiv.offsetHeight)){//在带有<!DOCTYPE>的页面中用documentElement取代document.body
+                    newTop=document.documentElement.clientHeight-mydiv.offsetHeight;
+                    iSpeedY=-iSpeedY;
+                }
+                if(newLeft<=0){
+                    newLeft=0;
+                    iSpeedX=-iSpeedX;
+                }
+                if(newLeft>=(document.documentElement.clientWidth-mydiv.offsetWidth)){
+                    newLeft=document.documentElement.clientWidth-mydiv.offsetWidth;
+                    iSpeedX=-iSpeedX;
+                }
+                mydiv.style.left=newLeft+'px';//原生js中px不能少
+                mydiv.style.top=newTop+'px';
+            },20);
+        }
+    });
+</script>
+</html>

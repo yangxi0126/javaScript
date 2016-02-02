@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    var arr=[1,2,3,2,2,2,4,4,"a","b","a","hehe","nimei","test","nimei"];
+    for(var i=0;i<arr.length;i++){
+        for(var j=i+1;j<arr.length;j++){
+            if(arr[i]==arr[j]){
+                arr.splice(j,1);
+                j--;
+            }
+        }
+    }
+    alert(arr);
+</script>
+</html>

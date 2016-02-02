@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>div随窗口移动</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #test{
+            width:200px;
+            height:200px;
+            background:red;
+            position:absolute;
+        }
+    </style>
+</head>
+<body style="height:2000px;">
+<input type="button" value="弹窗"/>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $('input').on('click',function(){
+        $('body').append('<div id="test"></div>');
+        $('#test').css({left:($(window).width()-$('#test').width())/2,top:($(window).height()-$('#test').height())/2});
+    });
+    $(window).on('resize scroll',function(){
+        $('#test').css({left:($(window).width()-$('#test').width())/2,top:($(window).height()-$('#test').height())/2+$(window).scrollTop()});
+    });
+</script>
+</html>

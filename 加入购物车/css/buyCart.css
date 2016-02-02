@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Microsoft yahei',Arial, Helvetica, sans-serif;
+}
+body{
+    height: 100%;
+}
+.main-box{
+    text-align: center;
+}
+.pic-box{
+    display: inline-block;
+    border: 1px solid #d1d1d1;
+    padding: 5px;
+}
+.pic-box h3{
+    color: #f30;
+    font-size: 14px;
+    padding: 10px 0 0 0;
+}
+.pic-box:hover{
+    border: 1px solid #faa51a;
+}
+.btn{
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 60%;
+    margin: 10px auto;
+    color: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+    border-radius: 5px;
+}
+.btn:hover{
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+    background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+}
+.cart-side{
+    height: 100%;
+    background: #000;
+    color: #fff;
+    width: 35px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+}
+.cart-side span{
+    width: 20px;
+    display: inline-block;
+    margin-left: 10px;
+}
+#icon-cart{
+    width:35px;
+    height:35px;
+    display:block;
+    background: url("../img/cart.png");
+}
+.cart{
+    position: relative;
+    top: 50%;
+    margin-top: -48px;
+}
+#tip{
+    position: fixed;
+    top: 50%;
+    margin-top: -26px;
+    right: 35px;
+    width: 0;
+    height:52px;
+    line-height:52px;
+    font-size:20px;
+    text-align:center;
+    display: none;
+    color:#fff; background:#360;
+    overflow: hidden;
+}
+.flyer-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+}

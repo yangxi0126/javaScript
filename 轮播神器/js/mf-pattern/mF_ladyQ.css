@@ -1,0 +1,15 @@
+/*=========mF_ladyQ========*/
+.mF_ladyQ{ position:relative;}
+.mF_ladyQ .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_ladyQ .pic li{width:100%;height:100%;overflow:hidden;position:absolute;display:none;}
+.mF_ladyQ .txt li{position:absolute;z-index:2;left:0;bottom:28px;line-height:30px;font-family:'微软雅黑'; visibility:hidden; opacity:0;}
+.mF_ladyQ .txt li.current{ visibility:visible; opacity:1;-webkit-transition:all 1s .4s;-moz-transition:all 1s .4s;-o-transition:all 1s .4s;}
+.mF_ladyQ .txt li a{display:block;position:relative;z-index:1;color:#fff;margin-top:2px;padding-left:10px;font-size:16px;text-decoration:none;}/*标题样式*/
+.mF_ladyQ .txt li p{position:relative;z-index:1;padding-left:11px;line-height:22px;font-size:14px;color:#eee;}
+.mF_ladyQ .txt li b{display:block;height:100%;width:100%;position:absolute;top:0;left:0;background:#000;filter:alpha(opacity=40);opacity:0.4;}
+.mF_ladyQ .time_bar{position:absolute;left:0;height:20px;overflow:hidden;background:#444;}
+.mF_ladyQ .num{position:relative;height:28px;background:#000;}/*按钮样式*/
+.mF_ladyQ .num ul{position:absolute;right:6px;top:4px;}
+.mF_ladyQ .num ul li{float:left;display:inline;margin-left:3px;width:20px;height:20px;line-height:20px;overflow:hidden;text-align:center;cursor:pointer;}
+.mF_ladyQ .num ul li a{color:#B1B1B1;display:block;background:#444;text-decoration:none;}
+.mF_ladyQ .num ul li.current a,.mF_ladyQ .num ul li.hover a{color:#fff;background:#f60;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;}/*当前/悬停按钮样式*/

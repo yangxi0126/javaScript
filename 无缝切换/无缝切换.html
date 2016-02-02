@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset=utf-8>
+    <title>无缝切换</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+        }
+        #myDiv{
+            border:1px solid #000;
+            position:relative;
+            margin:0 auto;
+            width:1000px;
+            height:200px;
+            overflow:hidden;
+        }
+        #myUl{
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        #myUl li{
+            width:200px;
+            height:200px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="向左" id="myLeft"/>
+<input type="button" value="向右" id="myRight"/>
+<div id="myDiv">
+    <ul id="myUl">
+        <li>
+            <img src="test1.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="test2.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="test3.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="test4.jpg" alt=""/>
+        </li>
+        <li>
+            <img src="test5.jpg" alt=""/>
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    function getWidth(obj){
+        var liNum=$(obj).find('li').length;
+        $(obj).width(liNum*200);
+    }
+    $(function(){
+        var myUl=$('#myUl');//动态设置ul的宽度
+        var myLi=myUl.find('li');
+        getWidth(myUl);
+    });
+    $('#myLeft').on('click',function(){
+        var myUl=$('#myUl');
+        var myLi=myUl.find('li');
+        var picNum=2;//一次想让几张图片移动
+        if(!myUl.is(':animated')){
+            for(var i=0;i<picNum;i++){
+                var newLi=myLi.eq(i).clone(true);
+                myUl.append(newLi);
+                getWidth(myUl);
+            }
+            myUl.animate({
+                left:'-='+picNum*200+'px'//注意这个写法！锋利的jQuery P139，每次减少picNum*200
+            },500,function(){
+                for(var i=0;i<picNum;i++){
+                    myLi.eq(i).remove();//移动完成后，将移出去的图片节点删除，同时将ul的left设置为0
+                    myUl.css({left:'0px'});
+                }
+            });
+        }
+    });
+    $('#myRight').on('click',function(){
+        var myUl=$('#myUl');
+        var myLi=myUl.find('li');
+        var totalPic=5;
+        var picNum=2;//一次想让几张图片移动
+        if(!myUl.is(':animated')){
+            for(var i=totalPic;i>totalPic-picNum;i--){
+                var newLi=myLi.eq(i-1).clone(true);
+                myUl.prepend(newLi);
+                myUl.css({left:-picNum*200+'px'});
+                getWidth(myUl);
+            }
+            myUl.animate({left:'+='+200*picNum+''},500,function(){
+                for(var i=myLi.length;i>myLi.length-picNum;i--){
+                    myLi.eq(i-1).remove();
+                }
+            });
+        }
+    });
+</script>
+</html>

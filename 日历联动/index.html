@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/dateRange.css"/>
+    <style>
+        #datePicker{
+            padding: 5px 10px;
+            border: 1px solid #d1d1d1;
+            text-align: center;
+            width: 200px;
+            float: right;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="datePicker"></div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/dateRange.js"></script>
+<script>
+    var dateRange = new pickerDateRange('datePicker', {
+        startDate : new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+(new Date().getDate()-1),
+        endDate : new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+(new Date().getDate()-1),
+        defaultText : ' 至 ',
+        minValidDate : (new Date(new Date().getFullYear()+'-'+(new Date().getMonth())+'-'+(new Date().getDate()-1)).getTime())/1000,  //简直日了狗，源码里面把毫秒数乘以了1000，所以这里的毫秒数要先除以1000，我靠，花了大半个下午找原因
+        theme : 'ta'
+    });
+</script>
+</html>

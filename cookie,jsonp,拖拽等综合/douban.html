@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>豆瓣搜索</title>
+    <style type="text/css">
+        #sContent{
+            width:300px;
+            height:30px;
+            padding:5px;
+            border:1px solid #f90;
+            font-size:16px;
+        }
+        dl{
+            border-bottom:1px dotted #000;
+        }
+        dt{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<input id="sContent" type="text"/>
+<input id="btn" type="button" value="搜索"/>
+<p id="msg"></p>
+<hr/>
+<div id="list"></div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    var str=/^\S+$/;
+    function creScript(obj){
+        var newScript=document.createElement('script');
+        newScript.src=obj;
+        document.body.appendChild(newScript);
+    }
+    function fn1(data){
+        console.log(data);
+        var msg=$('#msg');
+        var divCon=$('#list');
+        msg.text(data.title.$t+':'+data['opensearch:totalResults'].$t);
+        for(var i=0;i<data.entry.length;i++){
+            divCon.append('<dl><dt>'+data.entry[i].title.$t+'</dt><dd><img src="'+data.entry[i].link[2]["@href"]+'"/></dd></dl>');
+        }
+    }
+    $(function(){
+        var myBtn=$('#btn');
+        myBtn.on('click',function(){
+            var mySearch=$('#sContent').val();
+            if(str.test(mySearch)){
+                creScript('http://api.douban.com/book/subjects?q='+mySearch+'&alt=xd&callback=fn1');//http不要忘记！！！
+            }else{
+
+            }
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>鼠标</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font-family:"微软雅黑";
+            font-size:13px;
+        }
+        ul{
+            height:50px;
+        }
+        ul li{
+            list-style:none;
+            display:block;
+        }
+        .scrollline{
+            height:50px;
+            line-height:50px;
+            /*border:1px solid red;*/
+        }
+        .scrollline:hover{
+            cursor:pointer;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+<div style="height:50px;overflow:hidden;">
+    <ul>
+        <li class="scrollline">111</li>
+        <li class="scrollline">222</li>
+        <li class="scrollline">333</li>
+        <li class="scrollline">444</li>
+        <li class="scrollline">555</li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    var area=$('div');
+    var timespan=1000;//1s滚动一次
+    var timeID;
+    area.hover(function(){//移入清除定时器
+        clearInterval(timeID);
+    },function(){//移出开启定时器
+        timeID=setInterval(function(){
+            var moveline=area.find('li:first');//取得li的第一个元素
+            var lineheight=moveline.height();//取得要移动的高度
+            moveline.animate({marginTop:-lineheight+'px'},500,function(){//将第一个li往上移动50px,移动完后将其添加到ul的末尾,并将其距上一个li的高度设置为0
+                moveline.appendTo('ul').css({marginTop:0});
+            });
+        },timespan);
+    }).trigger('mouseleave');//载入页面时自动开始滚动
+</script>
+</html>

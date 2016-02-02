@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 770px;
+            margin: 0 auto;
+        }
+        .response{
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 10px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .num_box{
+            overflow: hidden;
+        }
+        .num_box>div{
+            float: left;
+            width: 180px;
+            height: 265px;
+            margin-right: 10px;
+            background: url("img/num.png") top center repeat-y #ccc;  /*repeat-y来实现轮播*/
+        }
+        .num_btn{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            background: greenyellow;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px auto;
+            text-align: center;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h1 class="response"></h1>
+    <div class="num_box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="num_btn">开始摇奖</div>
+</div>
+</body>
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+    var flag=false;
+    $('.num_btn').on('click',function(){
+        if(!$('.num_box>div').is(':animated')){
+            if(flag==true){
+                return false;  //放置多次点击
+            }
+            flag=true;
+            var imgH=265;
+            var number=getRandomNumber()+'';
+            $('.num_box>div').css('background-position-y',0);  //将所有背景图重置为0
+            var numArr=number.split('');
+            $('.num_box>div').each(function(index){
+                var This=$(this);  //This必须写在外面，不能卸载setTimeout里面
+                setTimeout(function(){
+                    This.animate({'background-position-y':imgH*50-imgH*numArr[index]},6000,'swing');
+                    if(parseInt(index)==3){
+                        $('.response').text('摇奖结果:'+number);
+                        flag=false;
+                    }
+                },500*index);
+            });
+        }
+    });
+    function getRandomNumber(){
+        var max=9999;
+        var min=0;
+        var numRandom=parseInt(Math.random()*(max-min));
+        var str='';
+        if(0<=numRandom && numRandom<10){
+            str='000'+numRandom;
+        }else if(10<=numRandom && numRandom<100){
+            str='00'+numRandom;
+        }else if(100<=numRandom && numRandom<1000){
+            str='0'+''+numRandom;
+        }else{
+            str=''+numRandom;
+        }
+        return str;
+    }
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>fullPage.js — 回调函数演示_dowebok</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<style>
+.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+.section2 p { position: relative; left: -120%;}
+.section3 p { position: relative; bottom: -120%;}
+.section4 p { display: none;}
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script src="http://cdn.staticfile.org/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script>
+$(function(){
+	$('#dowebok').fullpage({
+		sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+		afterLoad: function(anchorLink, index){
+			if(index == 2){
+				$('.section2').find('p').delay(500).animate({
+					left: '0'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == 3){
+				$('.section3').find('p').delay(500).animate({
+					bottom: '0'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == 4){
+				$('.section4').find('p').fadeIn(2000);
+			}
+		},
+		onLeave: function(index, direction){
+			if(index == '2'){
+				$('.section2').find('p').delay(500).animate({
+					left: '-120%'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == '3'){
+				$('.section3').find('p').delay(500).animate({
+					bottom: '-120%'
+				}, 1500, 'easeOutExpo');
+			}
+			if(index == '4'){
+				$('.section4').find('p').fadeOut(2000);
+			}
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+
+<div id="dowebok">
+	<div class="section section1">
+		<h3>第一屏</h3>
+		<p>fullPage.js — 回调函数演示</p>
+	</div>
+	<div class="section section2">
+		<h3>第二屏</h3>
+		<p>滚动到第二屏后的回调函数执行的效果</p>
+	</div>
+	<div class="section section3">
+		<h3>第三屏</h3>
+		<p>滚动到第三屏后的回调函数执行的效果</p>
+	</div>
+	<div class="section section4">
+		<h3>第四屏</h3>
+		<p>滚动到第四屏后的回调函数执行的效果</p>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<a href="http://www.dowebok.com/" style="display: none;">dowebok</a>
+<a href="http://www.dowebok.com/77.html" style="display: none;">jQuery全屏滚动插件fullPage.js</a>
+
+</body>
+</html>

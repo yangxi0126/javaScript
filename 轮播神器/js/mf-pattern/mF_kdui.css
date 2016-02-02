@@ -1,0 +1,17 @@
+/*=========mF_kdui ========*/
+.mF_kdui{ background:#000; position:relative;}
+.mF_kdui .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_kdui .pic{position:absolute;z-index:1;width:100%;height:100%; overflow:hidden;}
+.mF_kdui .pic li{ position:absolute; top:0; display:none;}
+.mF_kdui .txt{position:absolute;z-index:2; top:12px;left:12px; width:200px;}/*默认标题高度*/
+.mF_kdui .txt li{position:absolute;top:0;width:100%; padding:12px; display:none;}
+.mF_kdui .txt li a{position:relative;z-index:1;display:block;color:#fff;font-size:14px;font-weight:bold;text-decoration:none; font-family:'微软雅黑';}/*标题样式*/
+.mF_kdui .txt li b{position:absolute;top:0;left:0;display:block;width:100%;height:100%;background:#000;filter:alpha(opacity=20);opacity:0.2; border-radius:5px;}
+.mF_kdui .txt li p{color:#fff;}
+.mF_kdui .dot{position:absolute; z-index:3;bottom:8px;left:0;width:100%;text-align:center;}
+.mF_kdui .dot li{ display:inline-block;margin:0 3px;*display:inline;*zoom:1; width:16px;height:16px; background:url(img/mF_kdui/dots.png); cursor:pointer;}
+.mF_kdui .dot li.current{background-position: 0 -16px;}
+.mF_kdui .prev,.mF_kdui .next{ visibility:hidden; opacity:0; position:absolute; z-index:9;bottom:40%; left:12px; cursor:pointer; background:url(img/mF_kdui/slider-arrows.png) 0 0; width:38px; height:38px;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;}
+.mF_kdui .next{ left:auto;right:12px; background-position:100% 0;}
+.mF_kdui .prev:hover,.mF_kdui .next:hover{opacity:1;}
+.mF_kdui .arr-hover{ visibility:visible; opacity:0.5;}

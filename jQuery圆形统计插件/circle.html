@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/jquery.circliful.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        .myStat1,.myStat2,.myStat3{
+            position: absolute;
+        }
+        .myStat2{
+            top: 10px;
+            left: 10px;
+        }
+        .myStat3{
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="myStat1"></div>
+    <div class="myStat2"></div>
+    <div class="myStat3"></div>
+</div>
+<div class="box">
+    <div class="myStat1"></div>
+    <div class="myStat2"></div>
+    <div class="myStat3"></div>
+</div>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.circliful.min.js"></script>
+<script>
+//    data-dimension="250" data-text="35%" data-info="New Clients" data-width="5" data-fontsize="15" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee"
+    $(function(){
+        $('.myStat1').attr({
+            'data-dimension':150,
+            'data-text':'35%',
+            'data-width':'3',
+            'data-fontsize':'15',
+            'data-percent':80.9,
+            'data-fgcolor':'#5ba3f0',
+            'data-bgcolor':'#e8e9ea'
+        }).circliful();
+        $('.myStat2').attr({
+            'data-dimension':130,
+            'data-width':'3',
+            'data-fontsize':'15',
+            'data-percent':55,
+            'data-fgcolor':'#a77ef6',
+            'data-bgcolor':'#e8e9ea'
+        }).circliful();
+        $('.myStat3').attr({
+            'data-dimension':110,
+            'data-width':'3',
+            'data-fontsize':'15',
+            'data-percent':25,
+            'data-fgcolor':'#ee85ea',
+            'data-bgcolor':'#e8e9ea'
+        }).circliful();
+    });
+</script>
+</html>

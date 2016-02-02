@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width:550px;
+        }
+        span{
+            background:#ffff00;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        [张万年同志逝世]中国共产党的优秀党员，久经考验的忠诚共产主义战士，无产阶级革命家、军事家，中国人民解放军的卓越领导人，中国共产党第十五届中央政治局委员、书记处书记，中央军委原副主席张万年同志，因病医治无效，于2015年1月14日17时在北京逝世，享年87岁。
+    </div>
+    <input type="text" placeholder="请输入想要替换的文字"/>
+    <input type="text" placeholder="请输入替换的内容"/>
+    <input type="button" value="替换"/>
+</body>
+<script type="text/javascript">
+    var oInput=document.getElementsByTagName('input');
+    var oDiv=document.getElementsByTagName('div');
+    oInput[2].onclick=function(){
+        var str=/^\S+$/;
+        var oldCon=oInput[0].value;
+        var newCon=oInput[1].value;
+        if(!str.test(oldCon)||!str.test(newCon)){
+            alert("替换内容不为空");
+            return false;
+        }
+        oDiv[0].innerHTML=oDiv[0].innerHTML.split(oldCon).join("<span>"+newCon+"</span>");
+        oInput[0].value="";
+        oInput[1].value="";
+    };
+</script>
+</html>

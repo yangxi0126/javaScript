@@ -1,0 +1,18 @@
+/*=========mF_slide3D========*/
+.mF_slide3D_wrap{padding:8px;border:1px solid #999;float:left;background:#fff;}/*背景边框*/
+.mF_slide3D{ position:relative;}
+.mF_slide3D .loading{ position:absolute; width:100%; height:100%; background:#fff url(img/loading.gif) center no-repeat; z-index:9;}
+.mF_slide3D .pic li{float:left;display:inline;overflow:hidden;}
+.mF_slide3D .pic li img{width:0;}
+.mF_slide3D .mask11,.mF_slide3D .mask12{position:absolute;top:0;left:0;width:0;height:0;overflow:hidden;border-style:solid dashed dashed solid;border-color:#fff transparent transparent #fff;filter:chroma(color=#000000);}
+.mF_slide3D .mask12{top:auto;bottom:0;border-style:dashed dashed solid solid;border-color:transparent transparent #fff #fff;}
+.mF_slide3D .mask21,.mF_slide3D .mask22{position:absolute;top:0;right:0;width:0;height:0;overflow:hidden;border-style:solid solid dashed dashed;border-color:#fff #fff transparent transparent;filter:chroma(color=#000000);}
+.mF_slide3D .mask22{top:auto;bottom:0;border-style:dashed solid solid dashed;border-color:transparent #fff #fff transparent;}
+.mF_slide3D .num{position:absolute;z-index:3;bottom:12px;left:12px;}/*按钮样式*/
+.mF_slide3D .num li{float:left;display:inline;width:18px;height:18px;line-height:18px;border:1px solid #f60;overflow:hidden;text-align:center;margin-right:4px;cursor:pointer;}
+.mF_slide3D .num li a{color:#333;display:block;background:#FCF2CF; text-decoration:none;}
+.mF_slide3D .num li.current a,.mF_slide3D .num li.hover a,.mF_slide3D .next a:hover,.mF_slide3D .prev a:hover{color:#fff;background:#f60;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;}/*当前/悬停按钮样式*/
+.mF_slide3D .next{position:absolute;z-index:3;bottom:82px;right:12px;border:1px solid #f60;}
+/*.prev的样式是自己添加的*/
+.mF_slide3D .prev{position:absolute;z-index:3;bottom:82px;left:12px;border:1px solid #f60;}
+.mF_slide3D .next a,.mF_slide3D .prev a{ display:block;padding:0 4px;color:#333;background:#FCF2CF;cursor:pointer; text-decoration:none;}

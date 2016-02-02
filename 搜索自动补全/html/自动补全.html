@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .ui-autocomplete{
+            width: 200px;
+            list-style: none;
+            padding: 0;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+            border-bottom: 1px solid #333;
+            background: #fff;
+        }
+        .ui-menu-item{
+            color: #333;
+            font-size: 15px;
+            padding: 5px 4px;
+        }
+        .ui-menu-item:hover{
+            cursor: pointer;
+            color: #333;
+            background: #ebebeb;
+        }
+        .ui-helper-hidden-accessible{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<input id="test" type="text"/>
+</body>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/jquery-ui-widget-combobox.js"></script>
+<script>
+    $("#test").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: "/search",
+                dataType: "json",
+                type:'post',
+                data: {
+                    keyWord: request.term
+                },
+                success: function(data) {
+                    response($.map(data.data, function(item) {
+                        return {
+                            label: item.title
+                        }
+                    }));
+                }
+            });
+        },
+        minLength: 2,
+        open: function() {  //在下拉框被显示的时候触发
+            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+        },
+        close: function() {  //在下拉框被隐藏的时候触发
+            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+        }
+    });
+</script>
+</html>

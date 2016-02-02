@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>模拟扔小球</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        img{
+            width:100%;
+            height:100%;
+        }
+        #test{
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+    <img src="han1.jpg" alt=""/>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var mydiv=document.getElementById('test');
+        var prevX=0;
+        var prevY=0;
+        var iSpeedX=0;
+        var iSpeedY=0;
+        var timer=null;
+        var divtimer=null;
+        mydiv.style.width=0;
+        mydiv.style.height=0;
+        mydiv.style.left=document.documentElement.clientWidth/2+'px';
+        mydiv.style.top=document.documentElement.clientHeight/2+'px';
+//      “定义式”函数定义
+//        function Fn1(){
+//            alert("Hello World!");
+//        }
+//      “赋值式”函数定义
+//        var Fn2 = function(){
+//            alert("Hello wild!");
+//        }
+//      “定义式”函数定义
+//        Fn1();
+//        function Fn1(){
+//            alert("Hello World!");
+//        }
+//        正常执行，弹出“Hello World!”，浏览器对Fn1进行了预处理，再从Fn1();开始执行。
+//      “赋值式”函数定义
+//        Fn2();
+//        var Fn2 = function(){
+//            alert("Hello wild!");
+//        }
+//        Firebug报错：Fn2 is not a function，浏览器未对Fn2进行预处理，依序执行，所以报错Fn2未定义。
+//        根据以上，var divtimer=setInterval并未预处理，所以不认识里面的starMove()函数。
+        function startMove(){//该函数必须提上来，注意执行顺序的问题！！！具体为什么见上注释
+            clearInterval(timer);
+            timer=setInterval(function(){
+                iSpeedY+=3;
+                var newLeft=mydiv.offsetLeft+iSpeedX;
+                var newTop=mydiv.offsetTop+iSpeedY;
+                if(newLeft<=0){
+                    newLeft=0;
+                    iSpeedX=-iSpeedX;
+                    iSpeedX*=0.5;
+                }
+                if(newLeft>=(document.documentElement.clientWidth-mydiv.offsetWidth)){
+                    newLeft=document.documentElement.clientWidth-mydiv.offsetWidth;
+                    iSpeedX=-iSpeedX;
+                    iSpeedX*=0.5;
+                }
+                if(newTop<=0){
+                    newTop=0;
+                    iSpeedY=-iSpeedY;
+                    iSpeedX*=0.5;
+                    iSpeedY*=0.5;
+                }
+                if(newTop>=(document.documentElement.clientHeight-mydiv.offsetHeight)){
+                    newTop=document.documentElement.clientHeight-mydiv.offsetHeight;
+                    iSpeedY=-iSpeedY;
+                    iSpeedX*=0.5;
+                    iSpeedY*=0.5;
+                }
+                mydiv.style.left=newLeft+'px';
+                mydiv.style.top=newTop+'px';
+            },30);
+        }
+        toChange(300,200);
+        function toChange(w,h){
+            var L=mydiv.offsetLeft;
+            var T=mydiv.offsetTop;
+            var divtimer=setInterval(function(){
+                if(mydiv.offsetWidth==w&&mydiv.offsetHeight==h){
+                    clearInterval(divtimer);
+                    setTimeout(startMove,300);
+                }else{
+                    mydiv.style.width=mydiv.offsetWidth+30+'px';
+                    mydiv.style.height=mydiv.offsetHeight+20+'px';
+                    mydiv.style.left=L-mydiv.offsetWidth/2+'px';
+                    mydiv.style.top=T-mydiv.offsetHeight/2+'px';
+                }
+            },30);
+        }
+        mydiv.onmousedown=function(e){
+            clearInterval(timer);
+            var ev=e||window.event;
+            var disX=ev.clientX-mydiv.offsetLeft;
+            var disY=ev.clientY-mydiv.offsetTop;
+            prevX=e.clientX;
+            prevY=e.clientY;
+            document.onmousemove=function(e){
+                var ev=e||window.event;
+                mydiv.style.left=ev.clientX-disX+'px';
+                mydiv.style.top=ev.clientY-disY+'px';
+                iSpeedX=ev.clientX-prevX;
+                iSpeedY=ev.clientY-prevY;
+                prevX=ev.clientX;
+                prevY=ev.clientY;
+            };
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+                startMove();
+            };
+            return false;
+        }
+    });
+</script>
+</html>

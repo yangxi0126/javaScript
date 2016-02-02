@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>文字转移</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        .content{
+            border:2px solid #ccc;
+            width:300px;
+            height:300px;
+            float:left;
+        }
+        input{
+            width:100px;
+            height:25px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div style="margin:100px auto;width:800px;">
+    <textarea class="content" name="mytext" id="mytext" style="resize:none;" placeholder="请输入你想要输入的文字"></textarea>
+    <input type="button" value="转移"/>
+    <div class="content"></div>
+</div>
+</body>
+<script type="text/javascript">
+    var oBtn=document.getElementsByTagName("input")[0];
+    var timer=null;
+    oBtn.onclick=function(){
+        var str=/^\S+$/;
+        var myContent=document.getElementsByTagName("textarea")[0].value;
+        document.getElementsByClassName("content")[1].innerHTML="";
+        if(str.test(myContent)){
+            var mySplit=myContent.split("");
+            var n=0;
+            setInterval(function(){
+                if(n<mySplit.length){
+                    document.getElementsByClassName("content")[1].innerHTML+=mySplit[n];
+                    document.getElementsByTagName("textarea")[0].value=myContent.substring(n+1,mySplit.length);
+                    n++;
+                }else{
+                    clearInterval(timer);
+                }
+            },500);
+        }else{
+            alert("请输入文字");
+        }
+    };
+</script>
+</html>

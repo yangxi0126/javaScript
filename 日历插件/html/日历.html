@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <link rel="stylesheet" href="../css/jquery.cxcalendar.css"/>
+</head>
+<body>
+<!--注意点:(个人表示该插件比bootstrap的日历插件简单而且好看，这个插件可以自定义input样式)
+1.data-start-date表示起始日期，data-end-date表示截止日期;
+2.data-type日期显示格式(YYYY-M-D和YYYY/M/D常用);
+3.data-language语言(cn和en常用);
+4.data-position日历显示的位置(bottom常用);
+5.data-wday日历上面的星期从几开始(0-6);
+6.readonly一般要加上，不然用户可以自己输入;
+7.如果有data-start-date，那么value不要小于data-start-date的值(火狐下貌似有BUG);
+8.除周末两天的红色数字外，其他红色节日，移入会显示具体是什么节日(周末和节假日字体颜色可在css改变(比如假日颜色不需要为红色));
+9.点击空白日历消失，js会根据整个页面的宽度和高度生成一个点击块，点上面的时候日历消失(未压缩源码348行)。
+-->
+<!--<input id="myCalender" type="text" value="2015-08-17" data-start-date="2014-1-21" data-end-date="2015-12-31" data-type="YYYY-MM-DD" data-position="bottom" data-wday="0" readonly>-->
+<input id="myCalender2" type="text" value="2015-08-17" data-start-date="2014-1-21" data-end-date="2015-12-31" data-type="YYYY-MM-DD" data-position="bottom" data-wday="0" readonly>
+<input id="myCalender3" type="text" value="2015-08-17" data-start-date="2014-1-21" data-end-date="2015-12-31" data-type="YYYY-MM-DD" data-position="bottom" data-wday="0" readonly>
+</body>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/jquery.cxcalendar.js"></script>
+<script src="../js/jquery.cxcalendar.languages.js"></script>
+<script>
+//单个日历
+//$('#myCalender').cxCalendar();
+// 双联动日期示例
+(function(){
+  var dateFirst = $('#myCalender2');
+  var dateLast = $('#myCalender3');
+  var dateFirstApi;
+  var dateLastApi;
+
+  dateFirst.cxCalendar(function(api){
+    dateFirstApi = api;
+  });
+  
+  dateLast.cxCalendar(function(api){
+    dateLastApi = api;
+  });
+
+  dateFirst.bind('change', function(){
+    var firstTime = parseInt(dateFirstApi.getDate('TIME'), 10);
+    var lastTime = parseInt(dateLastApi.getDate('TIME'), 10);
+
+    if (lastTime < firstTime) {
+      dateLastApi.clearDate();
+    };
+
+    dateLastApi.setOptions({
+      startDate: firstTime
+    });
+    dateLastApi.show();
+  });
+})();
+</script>
+</html>

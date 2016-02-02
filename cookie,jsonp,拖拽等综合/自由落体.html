@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>自由落体</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #mydiv{
+            width:100px;
+            height:100px;
+            background:red;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+<input id="mybtn" type="button" value="点击"/>
+<div id="mydiv"></div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var btn=document.getElementById('mybtn');
+        var mydiv=document.getElementById('mydiv');
+        var iSpeed=0;
+        var timer=null;
+        btn.onclick=function(){
+            startMove();
+        };
+        function startMove(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+                iSpeed+=3;//加速运动，模拟下落过程
+                var T=mydiv.offsetTop+iSpeed;
+                if(T>=(document.documentElement.clientHeight-mydiv.offsetHeight)){
+                    T=document.documentElement.clientHeight-mydiv.offsetHeight;
+                    iSpeed=-iSpeed;
+                    iSpeed*=0.75;//摩擦系数，相当于每次弹回都会损失速度
+                }
+                mydiv.style.top=T+'px';
+            },30)
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>弹性运动</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+        }
+        #main{
+            width:770px;
+            height:190px;
+            position:relative;
+            margin:0 auto;
+            overflow:hidden;
+        }
+        .pics{
+            width:1560px;
+            height:160px;
+            position:relative;
+        }
+        .pics ul li{
+            float:left;
+        }
+        .leftSee{
+            opacity:1;
+        }
+        .rightSee{
+            opacity:0;
+        }
+        .btn{
+            position:relative;
+            text-align:center;
+            line-height:30px;
+            background: #c7c7c7;
+        }
+        .btn a{
+            display:inline-block;
+            font-size:12px;
+            cursor:pointer;
+            margin-right:50px;
+            color: #757575;
+            height:30px;
+        }
+        .btn .active{
+            color:black;
+        }
+        .caret{
+            border-right:8px solid transparent;
+            border-left:8px solid transparent;
+            border-top:8px solid white;
+            border-bottom:none;
+            position:absolute;
+            top:0;
+            left:315px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="pics">
+        <ul>
+            <li class="leftSee"><a href="#"><img src="apple1.jpg" alt=""></a></li>
+            <li class="leftSee"><a href="#"><img src="apple2.jpg" alt=""></a></li>
+            <li class="leftSee"><a href="#"><img src="apple3.jpg" alt=""></a></li>
+            <li class="leftSee"><a href="#"><img src="apple4.jpg" alt=""></a></li>
+            <li class="leftSee"><a href="#"><img src="apple5.jpg" alt=""></a></li>
+            <li class="leftSee"><a href="#"><img src="apple6.jpg" alt=""></a></li>
+            <li class="rightSee"><a href="#"><img src="apple7.jpg" alt=""></a></li>
+            <li class="rightSee"><a href="#"><img src="apple8.jpg" alt=""></a></li>
+            <li class="rightSee"><a href="#"><img src="apple9.jpg" alt=""></a></li>
+            <li class="rightSee"><a href="#"><img src="apple10.jpg" alt=""></a></li>
+            <li class="rightSee"><a href="#"><img src="apple11.jpg" alt=""></a></li>
+            <li class="rightSee"><a href="#"><img src="apple12.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <div class="btn">
+        <span class="caret"></span>
+        <a class="active">Product</a>
+        <a>More</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var j=0;
+        var liPos=[];//存放li的初始位置
+        var myLi=$('.pics').find('li');
+        var liWidth=myLi.eq(0).width();
+        for(var i=0;i<myLi.length;i++){
+            liPos[i]=myLi[i].offsetLeft;//存每一个li的位置
+        }
+        for(var i=0;i<myLi.length;i++){
+            myLi[i].style.position='absolute';
+            myLi[i].style.left=liPos[i]+'px';//不要忘记px
+        }
+        $('.btn').find('a').eq(0).on('click',function(){
+            var n=0;
+            for(var k=0;k<myLi.length;k++){
+                if(myLi.eq(k).is(':animated')){
+                    n++;
+                }
+            }
+            if(n==0){
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $('.caret').animate({left:315+'px'},350);
+                j=myLi.length-2;
+                myLi.eq(myLi.length-1).animate({left:liWidth*7+'px',opacity:'0'},350);
+                var rightGo1=setInterval(function(){
+                    myLi.eq(j).animate({left:liWidth*7+'px',opacity:'0'},350);
+                    j--;
+                    if(j<myLi.length/2){
+                        clearInterval(rightGo1);
+                        picPrev();
+                    }
+                },70);
+                function picPrev(){
+                    var rightGo2=setInterval(function(){
+                        myLi.eq(j).animate({left:liPos[j]+'px',opacity:'1'},350);
+                        j--;
+                        if(j<0){
+                            clearInterval(rightGo2);
+                        }
+                    },70);
+                }
+            }
+        });
+        $('.btn').find('a').eq(1).on('click',function(){
+            var n=0;
+            for(var k=0;k<myLi.length;k++){
+                if(myLi.eq(k).is(':animated')){
+                    n++;
+                }
+            }
+            if(n==0){
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $('.caret').animate({left:405+'px'},350);
+                j=1;
+                myLi.eq(0).animate({left:-liWidth*2+'px',opacity:'0'},350);
+                var leftGo1=setInterval(function(){
+                    myLi.eq(j).animate({left:-liWidth*2+'px',opacity:'0'},350);
+                    j++;
+                    if(j>=myLi.length/2){
+                        clearInterval(leftGo1);
+                        picNext();
+                    }
+                },70);
+                function picNext(){
+                    var leftGo2=setInterval(function(){
+                        myLi.eq(j).animate({left:liPos[j-myLi.length/2]+'px',opacity:'1'},350);
+                        j++;
+                        if(j>=myLi.length){
+                            clearInterval(leftGo2);
+                        }
+                    },70);
+                }
+            }
+        });
+    });
+</script>
+</html>

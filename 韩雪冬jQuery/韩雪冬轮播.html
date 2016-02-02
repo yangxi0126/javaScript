@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>韩雪冬轮播</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #automatic{
+            width:1000px;
+            height:650px;
+            margin:0 auto;
+            position:relative;
+            overflow:hidden;
+        }
+        li{
+            list-style:none;
+        }
+        #automatic li{
+            position:absolute;
+        }
+        #btn{
+            position:absolute;
+            bottom:0;
+            left:400px;
+        }
+        #btn img{
+            margin-right:50px;
+            cursor:pointer;
+        }
+        .pos_0{
+            top:0px;
+            left:0px;
+            z-index:1;
+            opacity:0;
+            width:100px;
+        }
+        .pos_1{
+            top:120px;
+            left:0px;
+            z-index:2;
+            opacity:0.4;
+            width:270px;
+        }
+        .pos_2{
+            top:40px;
+            left:50px;
+            z-index:3;
+            opacity:0.8;
+            width:480px;
+        }
+        .pos_3{
+            top:0px;
+            left:200px;
+            z-index:4;
+            opacity:1;
+            width:600px;
+        }
+        .pos_4{
+            top:40px;
+            right:50px;
+            z-index:3;
+            opacity:0.8;
+            width:480px;
+        }
+        .pos_5{
+            top:120px;
+            right:0px;
+            z-index:2;
+            opacity:0.4;
+            width:270px;
+        }
+        .pos_6{
+            top:0px;
+            right:0px;
+            z-index:1;
+            opacity:0;
+            width:100px;
+        }
+        li img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div id="automatic">
+    <ul>
+        <li class="pos_0">
+            <a href="#">
+                <img src="han1.jpg" alt="">
+            </a>
+        </li>
+        <li class="pos_1">
+            <a href="#">
+                <img src="han2.jpg" alt="">
+            </a>
+        </li>
+        <li class="pos_2">
+            <a href="#">
+                <img src="han3.jpg" alt="">
+            </a>
+        </li>
+        <li class="pos_3">
+            <a href="#">
+                <img src="han4.jpg" alt="">
+            </a>
+        </li>
+        <li class="pos_4">
+            <a href="#">
+                <img src="han5.jpg" alt="">
+            </a>
+        </li>
+        <li class="pos_5">
+            <a href="#">
+                <img src="han6.jpg" alt="">
+            </a>
+        </li>
+        <li class="pos_6">
+            <a href="#">
+                <img src="han7.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+    <div id="btn">
+        <img src="prev.png" alt=""/>
+        <img src="next.png" alt=""/>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var arr=[];
+        var myLi=$('#automatic ul').find('li');
+        for(var i=0;i<myLi.length;i++){
+            //双重数组,存入每个元素的位置、层数和透明度以及图片的宽度(为毛只设置宽度呢？因为设置宽度就相当于设置了高度，它会自动等比列缩放)
+            arr.push([myLi.eq(i).position().top,myLi.eq(i).position().left,myLi.eq(i).css('zIndex'),myLi.eq(i).css('opacity'),myLi.eq(i).width()]);
+        }
+        $('#btn img').eq(0).on('click',function(){
+            var n=0;
+            for(var j=0;j<myLi.length;j++){
+                if(myLi.eq(j).is(':animated')){
+                    n++;
+                }
+            }
+            if(n==0){
+                arr.push(arr[0]);
+                arr.shift();
+                for(var i=0;i<myLi.length;i++){
+                    myLi.eq(i).css({zIndex:arr[i][2]});
+                    myLi.eq(i).animate({
+                        top:arr[i][0]+'px',
+                        left:arr[i][1]+'px',
+                        opacity:arr[i][3],
+                        width:arr[i][4]+'px'
+                    },250);
+                }
+            }
+        });
+        $('#btn img').eq(1).on('click',function(){
+            var n=0;
+            for(var j=0;j<myLi.length;j++){
+                if(myLi.eq(j).is(':animated')){
+                    n++;
+                }
+            }
+            if(n==0){
+                arr.unshift(arr[arr.length-1]);
+                arr.pop();
+                for(var i=0;i<myLi.length;i++){
+                    myLi.eq(i).css({zIndex:arr[i][2]});
+                    myLi.eq(i).animate({
+                        top:arr[i][0]+'px',
+                        left:arr[i][1]+'px',
+                        opacity:arr[i][3],
+                        width:arr[i][4]+'px'
+                    },250);
+                }
+            }
+        });
+    });
+</script>
+</html>

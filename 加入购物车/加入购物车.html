@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/buyCart.css"/>
+</head>
+<body>
+<div class="main-box">
+    <div class="pic-box">
+        <img src="img/1.jpg" alt=""/>
+        <h3>¥299</h3>
+        <div class="btn">加入购物车</div>
+    </div>
+    <div class="pic-box">
+        <img src="img/2.jpg" alt=""/>
+        <h3>¥299</h3>
+        <div class="btn">加入购物车</div>
+    </div>
+    <div class="pic-box">
+        <img src="img/3.jpg" alt=""/>
+        <h3>¥299</h3>
+        <div class="btn">加入购物车</div>
+    </div>
+</div>
+<div class="cart-side">
+    <div class="cart">
+        <i id="icon-cart"></i>
+        <span>购物车</span>
+    </div>
+</div>
+<div id="tip">成功加入购物车</div>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.fly.min.js"></script>
+<script src="js/requestAnimationFrame.js"></script>
+<script>
+    $(function(){
+        var _lastPosi=$('#icon-cart').offset();
+        $('.btn').on('click',function(event){
+            var _imgSrc=$(this).parent().children('img').attr('src');
+            var _flyer=$('<img class="flyer-img" src="'+_imgSrc+'"/>');
+            _flyer.fly({
+                start:{  //抛物体起始位置为鼠标位置
+                    left:event.pageX,
+                    top:event.pageY
+                },
+                end:{  //抛物体最终位置
+                    left:_lastPosi.left,
+                    top:_lastPosi.top
+                },
+                autoPlay:true,  //是否直接运动,默认true
+                speed:1.2,  //越大越快,默认1.2
+                vertex_Rtop:20,  //运动轨迹最高点top值,默认20,越小越高
+                onEnd:function(){
+                    $('#tip').show().animate({width:'200px'},500).fadeOut(500);
+                    this.destory();
+                }
+            });
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 1000px;
+            height: 550px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        #ground{
+            width: 1000px;
+            height: 500px;
+            position: relative;
+        }
+        #button{
+            float: right;
+            height: 50px;
+            line-height: 50px;
+        }
+        button{
+            width: 50px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .block{
+            width: 20px;
+            height: 20px;
+            background: #2abad9;
+            float: left;
+        }
+        .snakeBody{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: #f57926;
+        }
+        .food{
+            width: 20px;
+            height: 20px;
+            background: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="ground"></div>
+    <div id="gameControl">
+        <div id="button">
+            <button id="start">开始</button>
+            <button id="pause">暂停</button>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var timer;
+    window.onload=function(){
+        createGrass();
+        createSnake();
+        createFood();
+        document.getElementById('start').onclick=function(){
+            clearInterval(timer);  //防止多次点击开始
+            timer=setInterval(function(){
+                snakeMove(diRection);
+            },150);
+            snakeMove(diRection);
+        };
+        document.getElementById('pause').onclick=function(){
+            clearInterval(timer);
+        };
+    };
+    //创建草坪
+    function createGrass(){
+        var oGround=document.getElementById('ground');
+        var oDiv;
+        for(var i=0;i<50;i++){
+            for(var j=0;j<25;j++){
+                oDiv=document.createElement('div');
+                oDiv.className='block';
+                oGround.appendChild(oDiv);
+            }
+        }
+    }
+    //创建蛇
+    var snakeBody=[],oFood,diRection='left';
+    function createSnake(){
+        var oGround=document.getElementById('ground');
+        var oDiv;
+        for(var i=0;i<3;i++){
+            oDiv=document.createElement('div');
+            oDiv.className='snakeBody';
+            oDiv.style.left=(i+40)*20+'px';
+            oDiv.style.top='60px';
+            oGround.appendChild(oDiv);
+            snakeBody.push(oDiv);
+        }
+    }
+    //创建食物
+    function createFood(){
+        var flag=true;  //该标识用于判断生成的div是否和蛇身div重合
+        var oGround=document.getElementById('ground');
+//        var oDiv;
+        var len=snakeBody.length;
+        var iLeft,iTop;
+        oFood=document.createElement('div');
+        oFood.className='food';
+        iLeft=parseInt(Math.random()*49)*20;
+        iTop=parseInt(Math.random()*24)*20;
+        for(var i=0;i<len;i++){
+            if(snakeBody[i].offsetLeft == iLeft && snakeBody[i].offsetTop == iTop){  //可console.log(snakeBody[i]),其中是按照offsetLeft和offsetTop来确定方块位置的
+                flag=false;
+                break;
+            }
+        }
+        if(flag==true){
+            oFood.style.left=iLeft+'px';
+            oFood.style.top=iTop+'px';
+            oGround.appendChild(oFood);
+        }else{
+            createFood();  //若生成的div有重合则再次调用自身
+        }
+    }
+    //蛇运动
+    function snakeMove(direction){  //direction用于作为蛇移动的四个方向的判断
+        var snakeHead=snakeBody[0];  //获取蛇头
+        diRection=direction;  //用于防止比如蛇身本来往左边走，但是向右按钮仍然有效的情况
+        for(var i=snakeBody.length-1;i>0;i--){  //移动说白了就是后面的div使用它前一个div的位置
+            snakeBody[i].style.left=snakeBody[i-1].offsetLeft+'px';
+            snakeBody[i].style.top=snakeBody[i-1].offsetTop+'px';
+        }
+        switch (direction){  //蛇头的位置
+            case 'left':snakeHead.style.left=snakeHead.offsetLeft-20+'px';break;
+            case 'right':snakeHead.style.left=snakeHead.offsetLeft+20+'px';break;
+            case 'up':snakeHead.style.top=snakeHead.offsetTop-20+'px';break;
+            case 'down':snakeHead.style.top=snakeHead.offsetTop+20+'px';break;
+        }
+        //蛇头碰壁
+        if(snakeHead.offsetLeft == -20 || snakeHead.offsetLeft == 1000 || snakeHead.offsetTop == -20 || snakeHead.offsetTop == 500){
+            clearInterval(timer);
+            if(confirm('再来一次?')){
+                window.location.reload();
+            }
+        }
+        //蛇碰到自身
+        for(var j=1;j<snakeBody.length;j++){
+            if(snakeHead.offsetLeft == snakeBody[j].offsetLeft && snakeHead.offsetTop == snakeBody[j].offsetTop){
+                clearInterval(timer);
+                if(confirm('再来一次')){
+                    window.location.reload();
+                }
+            }
+        }
+        //吃掉食物
+        if(snakeHead.offsetLeft==oFood.offsetLeft && snakeHead.offsetTop==oFood.offsetTop){
+            oFood.className='snakeBody snake-block';  //食物变成和蛇身一样的颜色
+            console.log(snakeBody[snakeBody.length-1].offsetTop);
+            switch (direction){  //把oFood的坐标采用最后一个div的坐标
+                case 'left':oFood.style.left=snakeBody[snakeBody.length-1].offsetLeft+'px';break;
+                case 'right':oFood.style.left=snakeBody[snakeBody.length-1].offsetLeft+'px';break;
+                case 'up':oFood.style.top=snakeBody[snakeBody.length-1].offsetTop+'px';break;
+                case 'down':oFood.style.top=snakeBody[snakeBody.length-1].offsetTop+'px';break;
+            }
+            snakeBody.push(oFood);  //这里最好用push把吃掉的div添加到蛇尾,添加到头部有一个问题，吐过实物div是靠边生成，那么吃掉后会超出墙范围或者直接撞墙
+            createFood();
+        }
+    }
+    //上下左右操作
+    document.onkeydown=function(e){  //document不要换成window，出滚动条的话，window会导致窗口移动
+        var event=e || window.event;
+        var direction=event.keyCode;
+        switch (direction){
+            case 37:
+                if(diRection != 'right'){
+                    snakeMove('left');
+                }
+            break;  //左
+            case 39:
+                if(diRection != 'left'){
+                    snakeMove('right');
+                }
+            break;  //右
+            case 38:
+                if(diRection != 'down'){
+                    snakeMove('up');
+                }
+            break;  //上
+            case 40:if(diRection != 'up'){
+                snakeMove('down');
+            }
+            break;  //下
+        }
+    }
+</script>
+</html>

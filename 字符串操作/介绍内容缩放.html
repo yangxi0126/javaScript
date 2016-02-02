@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="utf-8">
+    <title>倒计时</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        a{
+            font-size:12px;
+            color:blue;
+            cursor:pointer;
+        }
+        p{
+            padding:20px;
+            width:450px;
+            background: #dcba4c;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <span>
+        盗墓派的开山祖师爷，文笔和逻辑性绝对能把盗墓笔记拍死在沙滩上。盗墓笔记开场就是鬼吹灯的同人，
+        比如王胖子，特么人物就是直接用的鬼吹灯的胖子，连姓名都不改。怕鬼吹灯的设定盗墓分北派南派，发
+        丘中郎将、摸金校尉、搬山道人和卸岭力士。盗墓笔记就直接抄袭了这设定。连特么作者的名字都是直接
+        按同人作品来的怒但为什么现在大家谈盗墓就说笔记？？难道就因为鬼吹灯是写完才出书的没有按照网文
+        的规矩来？？惊 难道里面少了基情就没戏了？？ 衰个人觉得南派三叔人品不咋地...
+    </span>
+    <a href="javascript:;">>>收缩</a>
+</p>
+</body>
+<script type="text/javascript">
+    var oSpan=document.getElementsByTagName('span');
+    var oA=document.getElementsByTagName('a');
+    var myText=oSpan[0].innerHTML;
+    var oBtn=true;
+    oA[0].onclick=function(){
+        if(oBtn){
+            var newText=myText.substring(0,35);
+            oSpan[0].innerHTML=newText+'...';
+            oA[0].innerHTML='>>展开';
+        }else{
+            oSpan[0].innerHTML=myText;
+            oA[0].innerHTML='>>收缩';
+        }
+        oBtn=!oBtn;
+    }
+</script>
+</html>

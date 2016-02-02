@@ -1,0 +1,31 @@
+@charset "utf-8";
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+:focus{outline:0;}body{line-height:1;color:black;background:white;}
+ol,ul{list-style:none;}table{border-collapse:separate;border-spacing:0;}
+caption,th,td{text-align:left;font-weight:normal;}
+blockquote:before,blockquote:after,q:before,q:after{content:"";}
+blockquote,q{quotes:"" "";}
+
+/*www.sucaijiayuan.com*/
+
+/* tour */
+#tour{z-index:1;position:relative;padding:80px;position:relative;z-index:1;padding-top:0;min-height:500px;background-image:url(pattern.png);background-repeat:repeat-x;background-position:center bottom;margin-top:-50px;padding-top:80px;}
+
+#img-slider .slide{width:100%;background:#fff;position:absolute;}
+#img-slider .slide .img{margin:10px auto;border:none;}
+#img-slider .img{-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;border-radius:5px;-webkit-box-shadow:0 1px 0 rgba(204,205,206,5);-moz-box-shadow:0 1px 0 rgba(204,205,206,5);-ms-box-shadow:0 1px 0 rgba(204,205,206,5);box-shadow:0 1px 0 rgba(204,205,206,5);border:1px solid #edeeee;background-color:#fff;width:780px;height:500px;position:relative;}
+#img-slider .img img{display:block;width:100%;}
+#img-slider .img .label{-webkit-border-radius:0 0 4px 4px;-moz-border-radius:0 0 4px 4px;-ms-border-radius:0 0 4px 4px;border-radius:0 0 4px 4px;-webkit-border-radius:0 0 4px 4px;-moz-border-radius:0 0 4px 4px;-ms-border-radius:0 0 4px 4px;border-radius:0 0 4px 4px;background:#10af8b;padding:2.5% 0;position:absolute;bottom:0;left:0;right:0;font-weight:400;text-align:center;color:#fff;font-size:150%;}
+#img-slider .img:first-child{display:block;}
+
+.switcher-wrap{position:relative;padding-bottom:60px;padding-left:80px;padding-right:80px;}
+.switcher-wrap.slider{padding-left:380px;padding-right:380px;}
+.switcher-wrap.slider #img-slider .img{-webkit-box-shadow:0 4px 20px rgba(0,0,0,0.4);-moz-box-shadow:0 4px 20px rgba(0,0,0,0.4);-ms-box-shadow:0 4px 20px rgba(0,0,0,0.4);box-shadow:0 4px 20px rgba(0,0,0,0.4);border-color:#fff;}
+.switcher-wrap a.next,.switcher-wrap a.prev{-webkit-border-radius:100%;-moz-border-radius:100%;-ms-border-radius:100%;border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;-ms-border-radius:100%;border-radius:100%;position:absolute;width:50px;height:50px;top:50%;margin-top:-25px;bottom:0;left:0;background:url(sprites.png) no-repeat 16px 12px;z-index:1000;-webkit-transition:background-color 300ms linear;-moz-transition:background-color 300ms linear;-o-transition:background-color 300ms linear;-ms-transition:background-color 300ms linear;transition:background-color 300ms linear;}
+.switcher-wrap a.next:hover,.switcher-wrap a.prev:hover{background-color:rgba(16,175,139,0.1);}
+.switcher-wrap a.prev{right:0;left:auto;background-position:-63px 12px;}
+.switcher-wrap ul.switcher{text-align:center;position:absolute;left:0;right:0;bottom:0;}
+.switcher-wrap ul.switcher li{display:inline-block;padding:2px;border:1px solid #10af8b;border-radius:100%;margin:0 4px;}
+.switcher-wrap ul.switcher li a{display:block;width:14px;height:14px;-webkit-border-radius:100%;-moz-border-radius:100%;-ms-border-radius:100%;border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;-ms-border-radius:100%;border-radius:100%;-o-transition:background 0.30s ease-in-out;-webkit-transition:background 0.30s ease-in-out;-moz-transition:background 0.30s ease-in-out;transition:background 0.30s ease-in-out;}
+.switcher-wrap ul.switcher li a:hover,.switcher-wrap ul.switcher li.active a{background:#10af8b;}
+.switcher-wrap ul.switcher li:last-child{margin-right:0;}
