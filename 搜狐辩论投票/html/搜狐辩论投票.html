@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{font-size:12px;color:#666;background: #fff;}
+        #box_bg{width:440px;height:10px;background:url(../images/bg.gif) no-repeat;padding:24px 48px;margin:0 auto;}
+        #container{height:10px;position:relative;}
+        .line{height:10px;position:absolute;}
+        #white,#green{width:100%;}
+        #green{background:url(../images/green.gif) repeat-x #00FF00;height:10px;}
+        #red{background:url(../images/red.gif) repeat-x #FF0000;height:10px;width:50%;}
+        #white{background-color:yellow}
+        #vs{width:40px;height:40px;background:url(../images/vs.gif) no-repeat;line-height:40px;text-align:center;position:absolute;left:205px;top:-10px;display:none}
+        .scope{height:24px;text-align:center;}
+        .scope span{color:#FF3300;font-weight:bold;padding:0 5px;}
+        #all2{margin:0 auto }
+        #aa2{float:left}
+        #bb2{float:right}
+    </style>
+</head>
+<body>
+<div id="box_bg">
+    <div id="container">
+        <!--绿色条层级在最下面，宽度为100%-->
+        <div id="green" class="line"></div>
+        <!--红色条在绿色条上面，宽度为50%-->
+        <div id="red" class="line"></div>
+        <!--白色条在最上边，最开始是遮住红绿色条的-->
+        <div id="white" class="line"></div>
+        <div id="vs"></div>
+    </div>
+</div>
+<div style="width:440px; margin:0 auto;">
+    <div id="aa2" class="scope">正方<span id="aa"></span>票</div>
+    <div id="bb2" class="scope">反共<span id="bb"></span>票</div>
+    <div id="all2" class="scope">总共<span id="all"></span>票</div>
+</div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var a = 500;  //可以改为动态
+        var b = 130;
+        $("#white").animate({ width: 0, left: "220px" }, 1000, function () {  //宽度变为0的同时，让位置往左边移动父级(box_bg,container)的一半，正好到中间，形成红绿条同时出现
+            $("#vs").fadeIn("slow", function () {
+                $("#all").html(a + b);
+                $("#aa").html(a);
+                $("#bb").html(b);
+                var newLeft = a / (a + b) * 440 - 20 + "px"; //计算红绿条的百分比，440为总长度，20为vs宽度的一半
+                $("#vs").animate({ left: newLeft }, 1000);
+                $("#red").animate({ width: newLeft }, 1000);
+            });
+        });
+    });
+</script>
+</html>
