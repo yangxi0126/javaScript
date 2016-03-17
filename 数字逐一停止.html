@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="num"></div>
+</body>
+<script src="../javaScript/checkbox/js/jquery-1.9.1.min.js"></script>
+<script>
+    function showScore($ele, num, secand, pause){ //second  按照秒数，动画运行多少秒
+        if (!secand) { secand = 2;}
+        if (!pause) { pause = 20;}
+
+        var len = String(num).length;
+
+        var temnum, times = 0 , stepTimes, max ;
+        var numArr = String(num).split("");
+
+
+        function getRandom(n){
+            var num = Math.floor(Math.random()*(Math.pow(10, n)-1 - Math.pow(10, n-1))+Math.pow(10, n-1));
+
+            if (String(num).length !== n) {num = getRandom(n);}
+
+            return num;
+        }
+
+        function setValue(num, pause, secand){//second 运行多少秒后停止
+            var len = String(num).length, j=0;
+
+            if (!stepTimes) {
+                max = Math.ceil(secand*1000/len);
+                stepTimes = Math.ceil(max/pause);
+            }
+
+            temnum = "";
+            setTimeout(function(){
+                for (var i = 1; i <= len; i++) {
+                    if (times >= stepTimes*i) {
+                        j++;
+                        temnum += numArr[i-1]+"";
+                    }else{
+                        break;
+                    }
+                };
+
+                if (j < len) {
+                    $ele.html(temnum+""+getRandom(len-j));
+                }else{
+                    $ele.html(temnum);
+                }
+
+
+                if (times >= max || j >= len) {return;};
+
+                setValue(num, pause, secand);
+                times++;
+
+            }, pause);
+
+
+        }
+
+        setValue(num, pause, secand);
+
+    }
+
+    showScore($(".num"), 2344, 1.5, 10);
+</script>
+</html>
