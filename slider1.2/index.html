@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/slider1.2.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="modelSlider" style="margin: auto;width: 1280px;"></div>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/slider1.2.js"></script>
+<script>
+    $("#modelSlider").slider({
+        imgs: [  //图片的地址
+            "img/1.jpg",
+            "img/2.jpg",
+            "img/3.jpg",
+            "img/4.png",
+            "img/5.png",
+            "img/6.png"
+        ],
+//        urls: [  //点击图片跳转到的地址，也可以如下放一段js
+//            'javascript:makeDialog("轮显提示或者地址","第1个图",function(){},3)',
+//            'javascript:makeDialog("轮显提示或者地址","第2个图",function(){},3)',
+//            'javascript:makeDialog("轮显提示或者地址","第3个图",function(){},3)',
+//            'javascript:makeDialog("轮显提示或者地址","第4个图",function(){},3)',
+//            'javascript:makeDialog("轮显提示或者地址","第5个图",function(){},3)',
+//            'javascript:makeDialog("轮显提示或者地址","第6个图",function(){},3)'
+//        ],
+        scale: 128 / 36,   //图片宽高比   卧槽这里是定义整个box的宽高的，所以#modelSlider只需要给一个宽度就行了
+        border: true,   //是否显示分界线
+        showBar: true,    //是否可以人工切换  如果只保留一种切换方式，目前只找到一种方法，把源码中的effects数组里面的不需要的方法注释掉。。。应该有其他方法
+        x: 10,      //横向格子数
+        y: 3,      //纵向格子数
+        interval:3000
+    });
+</script>
+</html>

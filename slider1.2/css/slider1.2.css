@@ -1,0 +1,55 @@
+.slider-box{
+    position:relative;
+}
+.slider_cube,.slider_inner_a,.slider_inner_b{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+.slider_nav_box{
+    position:absolute;
+    right:0;
+    bottom:25%;
+}
+.slider_nav_title{
+    background:url(http://i1.tietuku.com/87ec913b390798fa.png) repeat center right;
+    min-width:150px;
+    height:100px
+}
+.slider_nav{
+    background:url(http://i1.tietuku.com/87ec913b390798fa.png) no-repeat;
+    height:18px;
+    min-width:100px;
+}
+.slider_bar{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    bottom:10px;
+    height:20px;
+}
+.slider_bar span{
+    display:inline-block;
+    margin:0 10px;
+    width:14px;
+    height:14px;
+    background:#B7B7B7;
+    cursor:pointer;
+    border-radius:20px;
+    box-shadow:inset 0 0 3px rgba(0,0,0,0.3);
+    -webkit-transition:.3s;
+    -moz-transition:.3s;
+    -ms-transition:.3s;
+    -o-transition:.3s;
+    transition:.3s;
+}
+.slider_bar span:hover{
+    background:#333;
+    background:rgba(0,0,0,0.7);
+}
+.slider_bar span.active{
+    background:#F40;
+    background:rgba(255,68,0,0.9);
+    cursor:default;
+}
