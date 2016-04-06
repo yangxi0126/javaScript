@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Demo</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li{list-style:none;}
+        div{font-family:"Microsoft YaHei";}
+        body{width: 900px;}
+        ul{overflow: hidden;}
+        ul li{float:left;}
+        ul li .outer{width:300px; height:250px;}
+        ul li .outer .inner{width:300px; height:250px; background:rgba(0, 0, 0, .3);}
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/09.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/010.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/011.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/012.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/013.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/014.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/015.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="outer">
+            <img src="http://sandbox.runjs.cn/uploads/rs/253/e6wsbxul/016.jpg" width="300px" height="250px" />
+            <div class="inner">
+                这是描述。。。
+            </div>
+        </div>
+    </li>
+</ul>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script src="js/mouseslide.js"></script>
+<script>
+    $(".outer").each(function(i){
+        $(this).show($(".inner").eq(i));
+    });
+</script>
+</body>
+</html>
