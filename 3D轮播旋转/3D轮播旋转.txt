@@ -1,2 +1,0 @@
-transform-style: preserve-3d;使被转换的子元素保留其3D转换(记得加前缀)
-perspective设置元素被查看位置的视图。perspective属性只影响3D转换元素。
