@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Animated Letters | Demo 1 | Codrops</title>
+		<meta name="description" content="Demo 1 of the letters.js plugin for animating SVG letters creatively." />
+		<meta name="keywords" content="letters.js, plugin, SVG, letter, animation, segment, web design, demo" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+			document.documentElement.className = 'js';
+		</script>
+		<script src="js/segment.min.js"></script>
+		<script src="js/d3-ease.v0.6.js"></script>
+		<script src="js/letters.js"></script>
+	</head>
+	<body class="demo-1">
+		<!-- SVG icons -->
+		<svg class="hidden">
+			<symbol id="icon-play" viewBox="0 0 60 60">
+				<path d="m53.48 27.435l-42.807-26.52c-3.119-2.047-5.672-.541-5.672 3.346v51.48c0 3.885 2.553 5.391 5.672 3.346l42.807-26.52c0 0 1.521-1.07 1.521-2.566s-1.521-2.566-1.521-2.566" />
+			</symbol>
+		</svg>
+		<!-- /SVG icons -->
+		<div class="container">
+			<section class="content">
+				<ul class="list">
+					<li class="list__item color-1">
+						<h3 class="list__text">ashin</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-2">
+						<h3 class="list__text">bogyoke</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-3">
+						<h3 class="list__text">nang</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-8">
+						<h3 class="list__text">maung</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-4">
+						<h3 class="list__text">Tekkatho</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 24 24">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-5">
+						<h3 class="list__text">sawbwa</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-6">
+						<h3 class="list__text">binnya</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__gap">
+						<p>In the following effects we also use <a href="http://mojs.io/">mo.js</a> for additional animations:</p>
+					</li>
+					<li class="list__item color-7">
+						<h3 class="list__text">thakin</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-9">
+						<h3 class="list__text">zeya</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item color-10">
+						<h3 class="list__text">sanda</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 60 60">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item list__item--burst color-11">
+						<h3 class="list__text">duwa</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 24 24">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+					<li class="list__item list__item--burst color-12">
+						<h3 class="list__text">sao</h3>
+						<button class="control__button control__button--play" aria-label="Trigger animation">
+							<svg class="control__vector" aria-hidden="true" role="img" viewBox="0 0 24 24">
+								<use xlink:href="#icon-play"></use>
+							</svg>
+						</button>
+					</li>
+				</ul>
+			</section>
+			 Related demos
+			<section class="content content--related">
+				<p>If you enjoyed this demo you might also like:</p>
+				<a class="media-item" href="http://tympanus.net/Development/TextStylesHoverEffects/">
+					<img class="media-item__img" src="img/related/LinkStylesHoverEffects.jpg">
+					<h3 class="media-item__title">Text Styles &amp; Hover Effects</h3>
+				</a>
+				<a class="media-item" href="http://tympanus.net/Development/InlineAnchorStyles/">
+					<img class="media-item__img" src="img/related/InlineLinkStyles.png">
+					<h3 class="media-item__title">Inline Anchor Styles</h3>
+				</a>
+			</section>
+		</div>
+		<!-- /container -->
+		<script>
+//  网址http://www.w2bc.com/article/105480
+		(function() {  //这一段没用啊感觉，反正把每个效果独立出来的话没这段话没影响
+			var decoLetter = new Letters(document.querySelector('.deco'), {
+				size: 1000,
+				weight: 5,
+				color: '#212028',
+				//color: '#63646B',
+				duration: 2,
+				fade:0,
+				easing: d3_ease.easeExpOut.ease
+			});
+			decoLetter.hideInstantly();
+			setTimeout(function() {
+				decoLetter.show();
+			}, 200);
+		})();
+		</script>
+		<script src="js/mo.min.js"></script>
+		<script src="js/demo-1.js"></script>
+	</body>
+</html>

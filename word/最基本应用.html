@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--这个js貌似下不下来。。IE没有测试过-->
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="my-text">ABCD</div>
+<button>click</button>
+</body>
+<script src="js/segment.min.js"></script>
+<script src="js/d3-ease.v0.6.js"></script>
+<script src="js/letters.js"></script>
+<script>
+//  网址http://www.w2bc.com/article/105480
+
+//  所有的参数选项（除了individualDelays）都可以设置为以下的值：
+//  单个值：可以被所有字母接收。
+//  数组：数组中的第一个元素会被第一个字母接收，第二个元素被第二个字母接收，以此类推。
+    var el=document.querySelector('.my-text');
+    var options = {
+        size: 300,         // Font size, defined by the height of the letters (pixels)  字体大小，根据字体高度来定义的
+        weight: 3,         // Font weight (pixels)  字体粗细
+        rounded: false,    // Rounded letter endings  字体是否带圆角
+        color: '#008ad4',  // Font color  字体颜色
+        duration: 1.5,       // Duration of the animation of each letter (seconds)  动画时间
+        delay: 0.1,  //[0, 0.05] Delay animation among letters (seconds)  每个字母之间的动画间隔
+        fade: 0.1,         // Fade effect duration (seconds)  透明度
+        easing: d3_ease.easeCircleInOut.ease,   // Easing function  动画效果
+        individualDelays: false               // If false (default), every letter delay increase gradually, showing letters from left to right always. If you want to show letters in a disorderly way, set it to true, and define different delays for the desired letters.  false是字母从左到右依次显示，true是字母同时显示
+    };
+    var myText = new Letters(el, options);
+    document.getElementsByTagName('button')[0].onclick=function(){
+        myText.toggle();
+//        // Show letters with the default options defined
+//        myText.show();
+//
+//// Hide letters with the default options defined
+//        myText.hide();
+//
+//// Toggle letters with the default options defined
+//        myText.toggle();
+
+        // Show letters instantly, without any animation at all
+// There is a hideInstantly and toggleInstantly function, too
+//        myText.toggle();
+//        myText.showInstantly();  // Shortcut for myText.show(0, 0, 0);  要上下两个一起用
+    };
+</script>
+</html>

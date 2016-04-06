@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Animated Letters | Alphabet | Codrops</title>
+		<meta name="description" content="Demo 2 of the letters.js plugin for animating SVG letters creatively." />
+		<meta name="keywords" content="letters.js, plugin, SVG, letter, animation, segment, web design, demo" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link res="stylesheet" type="text/css" href="fonts/morse/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+			document.documentElement.className = 'js';
+		</script>
+		<script src="js/segment.min.js"></script>
+		<script src="js/d3-ease.v0.6.js"></script>
+		<script src="js/letters.js"></script>
+	</head>
+	<body class="demo-2">
+		<div class="container">
+			<header class="codrops-header">
+				<div class="codrops-links">
+					<a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Development/Animocons/" title="Previous Demo"><span>Previous Demo</span></a>
+					<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=26057" title="Back to the article"><span>Back to the Codrops article</span></a>
+				</div>
+				<h1>Animated Letters</h1>
+				<nav class="codrops-demos">
+					<a href="index.html">Examples</a>
+					<a class="current-demo" href="index2.html">Alphabet</a>
+				</nav>
+				<p class="info"><strong>Click the boxes to see the effect.</strong></p>
+			</header>
+			<section class="content">
+				<ul class="grid">
+					<li class="grid__item">
+						<div class="grid__inner" data-morse='a' data-phonetic="alpha">
+							<span class="grid__text">a</span>
+							<h3 class="grid__heading">a</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='b' data-phonetic="bravo">
+							<span class="grid__text">b</span>
+							<h3 class="grid__heading">b</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='c' data-phonetic="charlie">
+							<span class="grid__text">c</span>
+							<h3 class="grid__heading">c</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='d' data-phonetic="delta">
+							<span class="grid__text">d</span>
+							<h3 class="grid__heading">d</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='e' data-phonetic="echo">
+							<span class="grid__text">e</span>
+							<h3 class="grid__heading">e</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='f' data-phonetic="foxtrot">
+							<span class="grid__text">f</span>
+							<h3 class="grid__heading">f</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='g' data-phonetic="golf">
+							<span class="grid__text">g</span>
+							<h3 class="grid__heading">g</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='h' data-phonetic="hotel">
+							<span class="grid__text">h</span>
+							<h3 class="grid__heading">h</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='i' data-phonetic="india">
+							<span class="grid__text">i</span>
+							<h3 class="grid__heading">i</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='j' data-phonetic="juliett">
+							<span class="grid__text">j</span>
+							<h3 class="grid__heading">j</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='k' data-phonetic="kilo">
+							<span class="grid__text">k</span>
+							<h3 class="grid__heading">k</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='l' data-phonetic="lima">
+							<span class="grid__text">l</span>
+							<h3 class="grid__heading">l</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='m' data-phonetic="mike">
+							<span class="grid__text">m</span>
+							<h3 class="grid__heading">m</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='n' data-phonetic="november">
+							<span class="grid__text">n</span>
+							<h3 class="grid__heading">n</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='o' data-phonetic="oscar">
+							<span class="grid__text">o</span>
+							<h3 class="grid__heading">o</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner">
+							<span class="grid__text" data-morse='p' data-phonetic="papa">p</span>
+							<h3 class="grid__heading">p</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='q' data-phonetic="quebec">
+							<span class="grid__text">q</span>
+							<h3 class="grid__heading">q</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='r' data-phonetic="romeo">
+							<span class="grid__text">r</span>
+							<h3 class="grid__heading">r</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='s' data-phonetic="sierra">
+							<span class="grid__text">s</span>
+							<h3 class="grid__heading">s</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='t' data-phonetic="tango">
+							<span class="grid__text">t</span>
+							<h3 class="grid__heading">t</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='u' data-phonetic="uniform">
+							<span class="grid__text">u</span>
+							<h3 class="grid__heading">u</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='v' data-phonetic="victor">
+							<span class="grid__text">v</span>
+							<h3 class="grid__heading">v</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='w' data-phonetic="whiskey">
+							<span class="grid__text">w</span>
+							<h3 class="grid__heading">w</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='x' data-phonetic="xray">
+							<span class="grid__text">x</span>
+							<h3 class="grid__heading">x</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='y' data-phonetic="yankee">
+							<span class="grid__text">y</span>
+							<h3 class="grid__heading">y</h3>
+						</div>
+					</li>
+					<li class="grid__item">
+						<div  class="grid__inner" data-morse='z' data-phonetic="zulu">
+							<span class="grid__text">z</span>
+							<h3 class="grid__heading">z</h3>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<!-- Related demos -->
+			<section class="content content--related">
+				<p>If you enjoyed this demo you might also like:</p>
+				<a class="media-item" href="http://tympanus.net/Development/TextStylesHoverEffects/">
+					<img class="media-item__img" src="img/related/LinkStylesHoverEffects.jpg">
+					<h3 class="media-item__title">Text Styles &amp; Hover Effects</h3>
+				</a>
+				<a class="media-item" href="http://tympanus.net/Development/InlineAnchorStyles/">
+					<img class="media-item__img" src="img/related/InlineLinkStyles.png">
+					<h3 class="media-item__title">Inline Anchor Styles</h3>
+				</a>
+			</section>
+		</div>
+		<!-- /container -->
+		<script src="js/demo-2.js"></script>
+	</body>
+</html>
