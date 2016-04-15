@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/animate.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #login{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        .animated.tada{
+            -webkit-animation-duration:.3s;  /*可以在这里改动画的持续时间，延迟时间和执行次数等*/
+        }
+    </style>
+</head>
+<body>
+<div id="login">
+    <input type="text">
+    <button>登录</button>
+</div>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+//  git地址：https://github.com/daneden/animate.css
+    $('button').on('click',function(){
+        var $login=$('#login');
+        var name= $.trim($('input').val());
+        if(name==''){
+            $login.addClass('animated tada').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+                $(this).removeClass('animated tada');
+            });  //one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){}相当于回调
+        }
+    });
+</script>
+</html>
