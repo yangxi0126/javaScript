@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <style type="text/css">
+        body{
+            margin:0;
+            padding:0
+        }
+        /*这一层是自己添加的，源代码是直接menu为最外层，但是这样不利于布局*/
+        #box{
+            width:100%;
+            height: 200px;
+            position: relative;
+        }
+        #menu{
+            position:absolute;
+            width:100%;
+            min-width: 1000px;
+            bottom:0;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="menu">
+        <img src="images/1.png" />
+        <img src="images/2.png" />
+        <img src="images/3.png" />
+        <img src="images/4.png" />
+        <img src="images/5.png" />
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    window.onload = function ()
+    {
+        var oMenu = document.getElementById("menu");
+        var aImg = oMenu.getElementsByTagName("img");
+        var aWidth = [];
+        var i = 0;
+        //保存原宽度, 并设置当前宽度
+        for (i = 0; i < aImg.length; i++)
+        {
+            aWidth.push(aImg[i].offsetWidth);  //当前图片为128px乘128px
+            aImg[i].width = parseInt(aImg[i].offsetWidth / 2) ;  //为每一张图片设置新宽度,为原宽度/2
+        }
+        //鼠标移动事件
+        oMenu.onmousemove = function (event)
+        {
+            var EVENT = event || window.event;
+            for (i = 0; i < aImg.length; i++)
+            {
+                var a = EVENT.clientX - aImg[i].offsetLeft - aImg[i].offsetWidth / 2;
+                var b = EVENT.clientY - aImg[i].offsetTop - oMenu.offsetTop - aImg[i].offsetHeight / 2;
+                var iScale = 1 - Math.sqrt(a * a + b * b) / 300;
+                if (iScale < 0.5) iScale = 0.5;
+                aImg[i].width = aWidth[i] * iScale;
+            }
+        };
+    };
+</script>
+</html>
