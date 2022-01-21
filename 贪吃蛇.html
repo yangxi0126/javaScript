@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>贪吃蛇</title>
     <style>
         *{
             margin: 0;
@@ -12,7 +12,7 @@
             width: 1000px;
             height: 550px;
             border: 1px solid #000;
-            margin: 100px auto;
+            margin: 10px auto;
         }
         #ground{
             width: 1000px;
@@ -27,6 +27,7 @@
         button{
             width: 50px;
             height: 20px;
+            border-radius: 8px;
             cursor: pointer;
         }
         .block{
@@ -71,7 +72,6 @@
             timer=setInterval(function(){
                 snakeMove(diRection);
             },150);
-            snakeMove(diRection);
         };
         document.getElementById('pause').onclick=function(){
             clearInterval(timer);
@@ -174,8 +174,7 @@
     }
     //上下左右操作
     document.onkeydown=function(e){  //document不要换成window，出滚动条的话，window会导致窗口移动
-        var event=e || window.event;
-        var direction=event.keyCode;
+        var direction=e.keyCode;
         switch (direction){
             case 37:
                 if(diRection != 'right'){
